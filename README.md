@@ -4,7 +4,7 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
 
 [![Kotlin](https://img.shields.io/badge/Code-Kotlin-blueviolet)](https://kotlinlang.org/)
 [![LISENCE](https://img.shields.io/badge/Lisence-MIT-green)]()
-![GitHub](https://img.shields.io/github/last-commit/joseluisgs/Kotlin-DAMnificad@s-Bootcamp)
+![GitHub](https://img.shields.io/github/last-commit/joseluisgs/Kotlin-Bootcamp-DAMnificados)
 
 ![imagen](https://repository-images.githubusercontent.com/3432266/7e79bf80-7aa6-11eb-9cbd-d7bda7eaf1aa)
 
@@ -40,7 +40,7 @@ Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twi
 [![Twitter](https://img.shields.io/twitter/follow/joseluisgonsan?style=social)](https://twitter.com/joseluisgonsan)
 [![GitHub](https://img.shields.io/github/followers/joseluisgs?style=social)](https://github.com/joseluisgs)
 
-Formador Kotlin certificado por JetBrains.
+Partner de Formación Kotlin certificado por JetBrains.
 
  <a href="https://www.jetbrains.com/es-es/company/partners/kotlin/" target="_blank"> 
     <img loading="lazy" style="border-radius: 0.25rem;" 
