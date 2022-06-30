@@ -10,7 +10,7 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
 
 - [DAMnificad@s Kotlin Bootcamp](#damnificads-kotlin-bootcamp)
   - [Bootcamp DAMnificad@s Kotlin](#bootcamp-damnificads-kotlin)
-  - [1- Inicial](#1--inicial)
+  - [1- Primeros pasos](#1--primeros-pasos)
   - [Documentación](#documentación)
   - [DAMnificad@s](#damnificads)
   - [Autor](#autor)
@@ -20,7 +20,8 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
 ## Bootcamp DAMnificad@s Kotlin
 Este bootcamp tiene como objetivo aprender a programar en Kotlin, ver sus ventajas respecto a otros lenguajes y comprender cómo se puede usar para crear cualquier aplicación de DAM/DAW.
 
-## 1- Inicial
+## 1- Primeros pasos
+Este bootcamp tiene como objetivo acercarnos a nuestros primeros pasos con Kotlin. Conoceremos los tipos de datos básicos, la nulabilidad, entradas y salidas por consola, funciones, estructuras de control y arrays.
 
 ## Documentación
 - [Documentación de Kotlin](https://kotlinlang.org/docs/home.html)
@@ -34,10 +35,18 @@ Puedes encontrarnos en Discord [DAMnificad@s](https://discord.gg/HWf9f4gc)
 
 ## Autor
 
-Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twitter.com/joseluisgonsan)
+Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twitter.com/joseluisgonsan). 
 
 [![Twitter](https://img.shields.io/twitter/follow/joseluisgonsan?style=social)](https://twitter.com/joseluisgonsan)
 [![GitHub](https://img.shields.io/github/followers/joseluisgs?style=social)](https://github.com/joseluisgs)
+
+Formador Kotlin certificado por JetBrains.
+
+ <a href="https://www.jetbrains.com/es-es/company/partners/kotlin/" target="_blank"> 
+    <img loading="lazy" style="border-radius: 0.25rem;" 
+      src="https://i.imgur.com/7QKlCED.png" alt="Log1" height="100"
+      borderRadius='1rem' boxShadow = '0 5px 18px rgba(0,0,0,0.3)'>
+  </a> &nbsp;
 
 ### Contacto
 <p>
