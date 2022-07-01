@@ -31,5 +31,22 @@ public class JavaMain {
         if (existe >= 1 && existe <= 10) {
             System.out.println("Existe : " + existe);
         }
+
+        // arrays
+        int[] array = new int[10]; // 0..9
+        System.out.println(array[7]);
+        int[][] ventas = new int[4][6];
+        System.out.println(ventas[1][2]);
+        String salida = (existe % 2 == 0) ? "es par" : "es impar";
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
+        }
+
+        int[] misEnteros = new int[10];
+        for (int i = 0; i < misEnteros.length; i++) {
+            misEnteros[i] = misEnteros[i] * 2;
+            System.out.println(misEnteros[i]);
+        }
     }
 }

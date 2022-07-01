@@ -43,5 +43,11 @@ fun main(args: Array<String>) {
     println(existe in (1..10))
     println(existe !in (1..10))
 
+    // Arrays
+    val array1 = Array<Int>(10) { 0 }
+    var array2 = IntArray(10)
+    println(array1[4])
+    val matrix = Array(10) { IntArray(10) }
+    println(matrix[1][3])
 
 }

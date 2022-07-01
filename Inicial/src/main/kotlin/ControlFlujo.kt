@@ -1,0 +1,60 @@
+fun main() {
+    // if if else
+    val num = 2
+    val salida = if (num % 2 == 0) "Es par" else "Es impar"
+    println(salida)
+
+    // When
+    val salida2 = when {
+        num % 2 == 0 -> "Es par"
+        num < 0 -> "Es negativo"
+        num is Int -> "Es Entero"
+        num !in 0..1 -> "No es 0 o 1"
+        else -> "Es otra cosa"
+    }
+
+    // While
+    var dato = 0
+    while (dato < 10) {
+        println(dato)
+        dato += 1
+    }
+
+    // do while
+    dato = 10
+    do {
+        println(dato)
+        dato -= 1
+    } while (dato > 0)
+
+    // for
+    for (i in 1..10) {
+        println(i)
+    }
+    for (i in 0 until 10) {
+        println(i)
+    }
+    for (i in 0 until 10 step 2) {
+        println(i)
+    }
+
+    for (i in 10 downTo 1 step 2) {
+        println(i)
+    }
+
+    val enteros = IntArray(10)
+
+    // For each element
+    for (i in enteros)
+        println(i)
+
+    for (i in enteros.indices) {
+        enteros[i] = enteros[i] * 2
+        println(enteros[i])
+    }
+
+    for (i in enteros.indices.reversed()) {
+        enteros[i] = enteros[i] * 2
+        println(enteros[i])
+    }
+}
