@@ -10,7 +10,8 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
 
 - [DAMnificad@s Kotlin Bootcamp](#damnificads-kotlin-bootcamp)
   - [Bootcamp DAMnificad@s Kotlin](#bootcamp-damnificads-kotlin)
-  - [1- Primeros pasos: Programación estructurada y modular.](#1--primeros-pasos-programación-estructurada-y-modular)
+  - [1.- Primeros pasos: Programación estructurada y modular.](#1--primeros-pasos-programación-estructurada-y-modular)
+  - [2.- Programación Orientada a Objetos](#2--programación-orientada-a-objetos)
   - [Documentación](#documentación)
   - [DAMnificad@s](#damnificads)
   - [Autor](#autor)
@@ -20,8 +21,11 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
 ## Bootcamp DAMnificad@s Kotlin
 Este bootcamp tiene como objetivo aprender a programar en Kotlin, ver sus ventajas respecto a otros lenguajes y comprender cómo se puede usar para crear cualquier aplicación de DAM/DAW.
 
-## 1- Primeros pasos: Programación estructurada y modular.
+## 1.- Primeros pasos: Programación estructurada y modular.
 Este bootcamp tiene como objetivo acercarnos a nuestros primeros pasos con Kotlin. Conoceremos los tipos de datos básicos, la nulabilidad, entradas y salidas por consola, funciones, estructuras de control y arrays.
+
+## 2.- Programación Orientada a Objetos
+Veremos la bases de la POO: objetos, clases, encapsulación, visibilidad, herencia, interfaces. Además hablaremos más sobre tipos en Kotlin, nulabilidad, excepciones y algunas cosas más.
 
 ## Documentación
 - [Documentación de Kotlin](https://kotlinlang.org/docs/home.html)
