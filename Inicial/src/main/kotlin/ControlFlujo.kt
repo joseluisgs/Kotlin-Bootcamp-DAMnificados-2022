@@ -48,13 +48,37 @@ fun main() {
     for (i in enteros)
         println(i)
 
+    for (i in enteros.reversed())
+        println(i)
+
+    // Cone sto trabajamos los índices
     for (i in enteros.indices) {
         enteros[i] = enteros[i] * 2
         println(enteros[i])
     }
 
+    // Podemos ir hacia atrás si queremos
     for (i in enteros.indices.reversed()) {
         enteros[i] = enteros[i] * 2
         println(enteros[i])
+    }
+
+    // Tambiñen podemos coger el valor y el indice a la vez
+    for (i in enteros.withIndex()) {
+        println("${i.index} ${i.value}")
+    }
+
+    // O usar desectructuración
+    for ((index, value) in enteros.withIndex()) {
+        println("$index $value")
+    }
+
+    for ((index, value) in enteros.withIndex().reversed()) {
+        println("$index $value")
+    }
+
+    // O no usar un for, si no un repeat para opciones repetidas
+    repeat(10) {
+        println("Hola")
     }
 }
