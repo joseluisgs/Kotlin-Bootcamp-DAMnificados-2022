@@ -66,11 +66,13 @@ fun main() {
     // Tambiñen podemos coger el valor y el indice a la vez
     for (i in enteros.withIndex()) {
         println("${i.index} ${i.value}")
+        enteros[i.index] = enteros[i.index] * i.value
     }
 
     // O usar desectructuración
     for ((index, value) in enteros.withIndex()) {
         println("$index $value")
+        enteros[index] = enteros[index] * value
     }
 
     for ((index, value) in enteros.withIndex().reversed()) {
