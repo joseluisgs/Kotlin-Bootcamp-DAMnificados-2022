@@ -29,12 +29,12 @@ public class PersonaJ {
         return edad * 2;
     }
 
+
     public void setEdad(int edad) {
         if (edad > 0) {
             this.edad = edad;
         } else {
-            // throw new IllegalArgumentException("La edad debe ser mayor que 0");
-            this.edad = 0;
+            throw new IllegalArgumentException("La edad debe ser mayor que 0");
         }
     }
 

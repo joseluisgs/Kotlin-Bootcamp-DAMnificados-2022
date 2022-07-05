@@ -2,7 +2,7 @@ package models
 
 import java.time.LocalDateTime
 
-class Persona(var nombre: String = "Pepe", var edad: Int = 0) {
+class Persona(var nombre: String? = "Pepe", var edad: Int = 0) {
     val isMayorDeEdad: Boolean = edad >= 18
     // get() = edad >= 18
 
@@ -25,7 +25,7 @@ class Persona(var nombre: String = "Pepe", var edad: Int = 0) {
     @JvmName("setEdadLimitacion")
     fun setEdad(value: Int) {
         if (value < 0) {
-            edad = 0
+            throw Exception("No puedes tener menos de 0 años")
         } else {
             edad = value
         }
@@ -41,6 +41,10 @@ class Persona(var nombre: String = "Pepe", var edad: Int = 0) {
 
     fun show(): String {
         return "Nombre: $nombre, Edad: $edad, CreatedAt: $createdAt"
+    }
+
+    override fun toString(): String {
+        return "Persona(nombre=$nombre, edad=$edad, createdAt=$createdAt)"
     }
 
 }
