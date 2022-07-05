@@ -12,11 +12,16 @@ public class PersonaJ {
     }
 
     public int getEdad() {
-        return edad;
+        return edad * 2;
     }
 
     public void setEdad(int edad) {
-        this.edad = edad;
+        if (edad > 0) {
+            this.edad = edad;
+        } else {
+            // throw new IllegalArgumentException("La edad debe ser mayor que 0");
+            this.edad = 0;
+        }
     }
 
     /*public LocalDateTime getCreatedAt() {
