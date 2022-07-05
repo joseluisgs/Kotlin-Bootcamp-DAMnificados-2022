@@ -35,13 +35,16 @@ fun main() {
     println(o2)
     val o3 = Ordenador(marca = "HP", precio = 32.0)
     println(o3)
-    
+
     val s1 = Servidor
     println(s1)
     println(s1.uuid)
     val s2 = Servidor
     println(s2)
     println(s2.uuid)
+
+    println(Ordenador.size)
+    val o4 = Ordenador.create("HP", 32.0)
 
 
 //    println("JAVA")
