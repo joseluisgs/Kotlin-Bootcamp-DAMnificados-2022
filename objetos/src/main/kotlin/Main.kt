@@ -77,11 +77,22 @@ fun main() {
 //    println(p4.show())
 //    val p8 = PersonaJ(null, 2)
 
+    // Tipos plataforma
     val personaJava = PersonaJ("Juan", 20)
     val nombre = personaJava.nombre
     val nombreNull = personaJava.nombreNull
     val nombreNotNull = personaJava.nombreNotNull
     println("${nombre.length}, ${nombreNull?.length}, ${nombreNotNull.length}")
+
+    // Object expression
+    val azahara = object {
+        val nombre = "Azahara"
+        var edad = 20
+    }
+    println(azahara.nombre)
+    println(azahara.edad)
+    azahara.edad = 21
+    println(azahara.edad)
 
 
 }
