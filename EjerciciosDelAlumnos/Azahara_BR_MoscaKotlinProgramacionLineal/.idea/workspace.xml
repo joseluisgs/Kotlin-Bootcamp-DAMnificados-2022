@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="adc9f49a-58e8-469d-a936-c04fedfc70e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.gradle/7.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaMoscaKotlin/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/demo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.gradle/7.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejemploMosca/src/main/kotlin/Main.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../escritorio para despues del examen/Examen26-5-2022/demo/demo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../escritorio para despues del examen/GestionAlmacenDAM-aza/GestionAlmacenDAM.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../escritorio para despues del examen/lineOrder/lineOrder.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../escritorio para despues del examen/semana santa/aplicacion/aplicacion.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../escritorio para despues del examen/semana santa/textos/textos.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../escritorio para despues del examen/semana santa/textosPrueva/demo/demo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../escritorio para despues del examen/semana santa/textosPrueva/demo22-04-22PruevaClase/demo22-04-22PruevaClase.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../escritorio para despues del examen/semana santa/textosPrueva/escena_dia_27/escena_dia_27.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../escritorio para despues del examen/semana santa/textosPrueva/javafx_iu_27-04/javafx_iu_27-04.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examenPrueva1/examenPrueva1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pantallita-19-06-2022/pantallita-19-06-2022.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practica13-6-2022/practica13-6-2022.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_5_31.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_5_31.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_5_31.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_5_31.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_1_5_31.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_junit_1_5_31.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/consoleApp.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/consoleApp.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/MainKt.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2BV1AXLDL5IrFhYCdcKysmqGYRk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <module name="consoleApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.MainKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="adc9f49a-58e8-469d-a936-c04fedfc70e5" name="Changes" comment="" />
+      <created>1656976297383</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656976297383</updated>
+      <workItem from="1656976299033" duration="4423000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
