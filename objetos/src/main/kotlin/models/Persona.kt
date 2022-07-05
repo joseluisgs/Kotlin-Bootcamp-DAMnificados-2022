@@ -2,8 +2,10 @@ package models
 
 import java.time.LocalDateTime
 
-class Persona(var nombre: String? = "Pepe", var edad: Int = 0) {
+open class Persona(var nombre: String? = "Pepe", var edad: Int = 0) {
     val isMayorDeEdad: Boolean = edad >= 18
+    val fechaNacimiento: LocalDateTime by lazy { LocalDateTime.now() }
+
     // get() = edad >= 18
 
     /*var edad: Int = 0

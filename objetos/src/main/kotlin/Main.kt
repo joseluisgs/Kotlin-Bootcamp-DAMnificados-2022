@@ -1,7 +1,4 @@
-import models.Ordenador
-import models.Persona
-import models.PersonaJ
-import models.Servidor
+import models.*
 
 fun main() {
     println("KOTLIN")
@@ -45,6 +42,15 @@ fun main() {
 
     println(Ordenador.size)
     val o4 = Ordenador.create("HP", 32.0)
+    println(o4.fechaVenta)
+
+    val prog = Programador("Juan", 20, 3)
+    println(prog)
+    val progKotlin = ProgramadorKotlin("Ana", 20, 3)
+    println(progKotlin)
+    progKotlin.disfrutar()
+    val prog2: IKotlin = ProgramadorKotlin("Eva", 18, 1)
+    prog2.disfrutar()
 
 
 //    println("JAVA")
