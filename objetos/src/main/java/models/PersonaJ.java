@@ -38,6 +38,10 @@ public class PersonaJ {
         }
     }
 
+    public boolean isMayorDeEdad() {
+        return edad > 18;
+    }
+
     /*public LocalDateTime getCreatedAt() {
         return createdAt;
     }*/

@@ -16,6 +16,7 @@ fun main() {
     println(p3.show())
     val p5 = Persona(edad = 20)
     val p6 = Persona(nombre = "Prueba")
+    println(p6.isMayorDeEdad)
 
     println("JAVA")
     val p2 = PersonaJ()

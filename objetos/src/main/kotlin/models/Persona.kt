@@ -2,10 +2,11 @@ package models
 
 import java.time.LocalDateTime
 
-class Persona {
-    var nombre: String = ""
+class Persona(var nombre: String = "Pepe", var edad: Int = 0) {
+    val isMayorDeEdad: Boolean = edad >= 18
+    // get() = edad >= 18
 
-    var edad: Int = 0
+    /*var edad: Int = 0
         get() = field * 2
         set(value) {
             if (value < 0) {
@@ -14,15 +15,24 @@ class Persona {
             } else {
                 field = value
             }
+        }*/
+
+    @JvmName("getEdadDoble")
+    fun getEdad(): Int {
+        return edad * 2
+    }
+
+    @JvmName("setEdadLimitacion")
+    fun setEdad(value: Int) {
+        if (value < 0) {
+            edad = 0
+        } else {
+            edad = value
         }
+    }
 
     private val createdAt: LocalDateTime = LocalDateTime.now()
 
-
-    constructor(nombre: String = "Pepe", edad: Int = 18) {
-        this.nombre = nombre
-        this.edad = edad
-    }
 
     init {
         println("Se ha inicializado una persona")
