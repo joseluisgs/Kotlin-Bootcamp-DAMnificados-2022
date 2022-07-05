@@ -21,8 +21,19 @@ public class PersonaJ {
         System.out.println("PersonaJ creada");
     }
 
+    //@NotNull
     public String getNombre() {
         return nombre;
+    }
+
+    //@Nullable
+    public String getNombreNull() {
+        return null;
+    }
+
+    //@NotNull
+    public String getNombreNotNull() {
+        return "Pepe";
     }
 
     public int getEdad() {

@@ -52,6 +52,12 @@ fun main() {
     val prog2: IKotlin = ProgramadorKotlin("Eva", 18, 1)
     prog2.disfrutar()
 
+    val o5 = Ordenador.create("HP", 32.0)
+    println(o5)
+    println(o5.precioActual)
+    o5.precioActual = 33.0
+    println(o5.precioActual)
+
 
 //    println("JAVA")
 //    val p2 = PersonaJ()
@@ -70,6 +76,12 @@ fun main() {
 //    val p4 = PersonaJ("Pepe", 20)
 //    println(p4.show())
 //    val p8 = PersonaJ(null, 2)
+
+    val personaJava = PersonaJ("Juan", 20)
+    val nombre = personaJava.nombre
+    val nombreNull = personaJava.nombreNull
+    val nombreNotNull = personaJava.nombreNotNull
+    println("${nombre.length}, ${nombreNull?.length}, ${nombreNotNull.length}")
 
 
 }
