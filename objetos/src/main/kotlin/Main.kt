@@ -12,6 +12,11 @@ fun main() {
     p1.edad = 10
     println(p1.edad)
 
+    val p3 = PersonaJ("Pepe", 20)
+    println(p3.show())
+    val p5 = Persona(edad = 20)
+    val p6 = Persona(nombre = "Prueba")
+
     println("JAVA")
     val p2 = PersonaJ()
     println(p2.nombre)
@@ -21,5 +26,8 @@ fun main() {
     println(p2.edad)
     p2.edad = 10
     println(p2.edad)
+
+    val p4 = PersonaJ("Pepe", 20)
+    println(p4.show())
 
 }

@@ -3,9 +3,23 @@ package models;
 import java.time.LocalDateTime;
 
 public class PersonaJ {
-    private final String nombre = "Pepe";
     private final LocalDateTime createdAt = LocalDateTime.now();
+    private String nombre = "Pepe";
     private int edad = 18;
+
+    public PersonaJ() {
+        inicializar();
+    }
+
+    public PersonaJ(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+        inicializar();
+    }
+
+    private void inicializar() {
+        System.out.println("PersonaJ creada");
+    }
 
     public String getNombre() {
         return nombre;
