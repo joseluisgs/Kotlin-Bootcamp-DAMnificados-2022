@@ -15,11 +15,11 @@ fun main() {
 
     // Alumnos de DAM
     println("Alumnos de DAM:")
-    alumnado.filter { it.curso == "DAM" }.forEach { println(it) }
+    println(alumnado.filter { it.curso == "DAM" })
 
     // Alumnos con nota >= 8.5
     println("Alumnos con nota >= 8.5:")
-    alumnado.filter { it.nota >= 8.5 }.forEach { println(it) }
+    println(alumnado.filter { it.nota >= 8.5 })
 
     // Alumnos con nota máxima
     println("Alumnos con nota máxima:")
