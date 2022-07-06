@@ -12,6 +12,8 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
   - [Bootcamp DAMnificad@s Kotlin](#bootcamp-damnificads-kotlin)
   - [1.- Primeros pasos: Programación estructurada y modular.](#1--primeros-pasos-programación-estructurada-y-modular)
   - [2.- Programación Orientada a Objetos](#2--programación-orientada-a-objetos)
+  - [3.- Programación Funcional](#3--programación-funcional)
+  - [4.- Tipos de Datos Abstractos](#4--tipos-de-datos-abstractos)
   - [Documentación](#documentación)
   - [DAMnificad@s](#damnificads)
   - [Autor](#autor)
@@ -26,6 +28,12 @@ Este bootcamp tiene como objetivo acercarnos a nuestros primeros pasos con Kotli
 
 ## 2.- Programación Orientada a Objetos
 Veremos la bases de la POO: objetos, clases, encapsulación, visibilidad, herencia, interfaces. Además hablaremos más sobre tipos en Kotlin, nulabilidad, excepciones y algunas cosas más.
+
+## 3.- Programación Funcional
+Veremos la bases de la programación funcional: funciones de orden superior, tipo función, funciones de extensión o lambdas con receiver.
+
+## 4.- Tipos de Datos Abstractos
+Veremos los tipos de datos abstractos: tipos de datos genéricos y manejo de colecciones.
 
 ## Documentación
 - [Documentación de Kotlin](https://kotlinlang.org/docs/home.html)
