@@ -1,4 +1,5 @@
 package funcional
+
 // En Kotlin las funciones son ciudadanos de primera clase.
 // Esto implica que las funciones pueden ser pasadas como argumentos a otras funciones.
 // o almacenarse en variables para luego usarlas
@@ -45,6 +46,20 @@ fun tiempo(accion: () -> Unit) {
     println("Tiempo de ejecucion: ${(tFin - tIni) / 1000000} ms")
 }
 
+// Inline nos cokpia el codigo exacto detro de la funcion, a veces interesa eso que repetor referencias a objetos
+// Esto es avanzado
+inline fun miRepeat(times: Int, action: (Int) -> Unit) {
+    for (index in 0 until times) {
+        action(index)
+    }
+}
+
+inline fun myForeach(collection: Collection<String>, action: (String) -> Unit) {
+    for (item in collection) {
+        action(item)
+    }
+}
+
 fun main() {
     println(sum(1, 2))
     println(suma(1, 2))
@@ -69,5 +84,11 @@ fun main() {
             operacion(1, 2) { a, b -> a * b } // Esto es una función anónima
         }
     }
-    // Como ves la potencia es muy interesante :)
+    miRepeat(100000) {
+        operacion(1, 2) { a, b -> a * b } // Esto es una función anónima
+    }
+
+    myForeach(listOf("a", "b", "c")) {
+        println(it)
+    }
 }

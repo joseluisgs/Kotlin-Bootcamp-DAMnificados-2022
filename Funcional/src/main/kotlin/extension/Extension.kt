@@ -31,6 +31,16 @@ fun List<Int>.filer(predicate: (Int) -> Boolean): List<Int> {
     return r
 }
 
+fun <T> List<T>.filerGeneric(predicate: (T) -> Boolean): List<T> {
+    val r = mutableListOf<T>()
+    for (n in this) if (predicate(n)) r.add(n)
+    return r
+}
+
+inline fun <T> Collection<T>.myForEach(action: (T) -> Unit): Unit {
+    for (element in this) action(element)
+}
+
 fun main() {
     println(isEvenfun(2))
     println(2.isEven())
@@ -47,4 +57,8 @@ fun main() {
     println(listOf(1, 2, 3, 4, 5).filer { it <= 2 })
     println(listOf(1, 2, 3, 4, 5).filer { it % 2 == 0 })
     println(listOf(1, 2, 3, 4, 5).filer { it.isPrime() })
+    println(listOf(1, 2, 3, 4, 5).filerGeneric { it % 2 == 0 })
+    println(listOf("sarabaras", "casa").filerGeneric { it.isPalindrome() })
+    listOf("sarabaras", "casa").myForEach { println(it) }
+    listOf(1, 2, 3, 4, 5).myForEach { println(it) }
 }
