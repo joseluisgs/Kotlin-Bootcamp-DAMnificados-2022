@@ -39,6 +39,10 @@ fun operacion(a: Int, b: Int, op: (Int, Int) -> Int): Int {
     return op(a, b)
 }
 
+var display: () -> Unit = { println("Hola") }
+
+fun displayFun() = println("Hola")
+
 fun tiempo(accion: () -> Unit) {
     val tIni = System.nanoTime()
     accion()
@@ -61,6 +65,8 @@ inline fun myForeach(collection: Collection<String>, action: (String) -> Unit) {
 }
 
 fun main() {
+    display()
+    displayFun()
     println(sum(1, 2))
     println(suma(1, 2))
     println(suma2(1, 2))
@@ -74,21 +80,53 @@ fun main() {
     println(operacion(1, 2) { a, b -> a - b })
     println(operacion(1, 2) { a, b -> a * b })
     println(operacion(1, 2) { a, b -> a / b })
+    println(operacion(1, 2) { a, b -> a % b })
     tiempo { println("Hola") }
     tiempo {
         add(1, 2)
     }
     tiempo {
         // puedes ver la implementación de repeat??
-        repeat(100000) {
+        repeat(10_0000) {
             operacion(1, 2) { a, b -> a * b } // Esto es una función anónima
         }
     }
-    miRepeat(100000) {
+
+    tiempo(accion = {
+        for (i in 0 until 10_0000) {
+            suma(1, 2)
+        }
+    })
+
+    miRepeat(10_0000) {
         operacion(1, 2) { a, b -> a * b } // Esto es una función anónima
     }
+
+    miRepeat(times = 10_0000, action = {
+        operacion(1, 2) { a, b -> a * b } // Esto es una función anónima
+    })
+
+    miRepeat(times = 10_0000, action = {
+        "abracadabra".uppercase()
+        "abracadabra".length
+        operacion(1, 2) { a, b -> a * b } // Esto es una función anónima
+    })
 
     myForeach(listOf("a", "b", "c")) {
         println(it)
     }
+
+    myForeach(collection = listOf("a", "b", "c"), action = {
+        println(it.uppercase())
+    })
+
+    myForeach(collection = listOf("a", "b", "c"), action = { x ->
+        println(x.lowercase())
+    })
+
+    myForeach(collection = listOf("ab", "bc", "cd"), action = { x ->
+        println(x.drop(1))
+    })
+
+    myForeach(listOf("ab", "bc", "cd")) { println(it.drop(1)) }
 }
