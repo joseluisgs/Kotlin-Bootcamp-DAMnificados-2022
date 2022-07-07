@@ -21,6 +21,9 @@ fun main() {
     println("Alumnos con nota >= 8.5:")
     println(alumnado.filter { it.nota >= 8.5 })
 
+    println("Alumnos con nota >= 8.5 y de DAM")
+    println(alumnado.filter { it.nota >= 8.5 && it.curso == "DAM" })
+
     // Alumnos con nota máxima
     println("Alumnos con nota máxima:")
     val notaMaxima = alumnado.maxBy { it.nota }
@@ -41,7 +44,7 @@ fun main() {
 
     // Alumnado agrupado por nota mayor que 8.5
     println("Alumnado agrupado por nota mayor que 8.5:")
-    val agrupadoPorNota = alumnado.groupBy { if (it.nota >= 8.5) "Sobrsalientes" else "Otros" }
+    val agrupadoPorNota = alumnado.groupBy { if (it.nota >= 8.5) "Sobresalientes" else "Otros" }
     println(agrupadoPorNota)
 
     // Alumnado ordenado por nota descendente
@@ -52,16 +55,16 @@ fun main() {
     // Buscar alumnos con nota >= 8.5
     println("Buscar alumnos con nota >= 8.5:")
     val buscarNota = alumnado.find { it.nota >= 8.5 }
-    println(buscarNota)
+    println(buscarNota ?: "No hay alumnos con nota >= 8.5")
 
     // Buscar alumnos con nota >= 8.5 y curso DAW
     println("Buscar alumnos con nota >= 8.5 y curso DAW:")
     val buscarNotaYCurso = alumnado.find { it.nota >= 8.5 && it.curso == "DAW" }
-    println(buscarNotaYCurso)
+    println(buscarNotaYCurso ?: "No hay alumnos con nota >= 8.5 y curso DAW")
 
     // Numero de alumnos agrupados por nota mayor que 8.5
     println("Numero de alumnos agrupados por nota mayor que 8.5:")
-    val numeroAlumnos = alumnado.groupBy { if (it.nota >= 8.5) "Sobrsalientes" else "Otros" }.
-        map { it.key to it.value.size }
+    val numeroAlumnos = alumnado.groupBy { if (it.nota >= 8.5) "Sobrsalientes" else "Otros" }
+        .map { it.key to it.value.size }
     println(numeroAlumnos)
 }
