@@ -24,6 +24,13 @@ fun main() {
     println("Alumnos con nota >= 8.5 y de DAM")
     println(alumnado.filter { it.nota >= 8.5 && it.curso == "DAM" })
 
+    // Lista de Alumnos de DAM con nota >= 8.5
+    val (alumnosSobresaliente, alumnosOtros) = alumnado.partition { it.nota >= 8.5 && it.curso == "DAM" }
+    println("Alumnos de DAM con nota >= 8.5:")
+    println(alumnosSobresaliente)
+    println("Alumnos de otras notas:")
+    println(alumnosOtros.joinToString(prefix="{{", separator = " | ", postfix="}}"))
+
     // Alumnos con nota máxima
     println("Alumnos con nota máxima:")
     val notaMaxima = alumnado.maxBy { it.nota }
