@@ -5,6 +5,7 @@ package lambdareceiver
 // con ello podemos hacer safebuilders o DSL
 
 // Aqui esta claro que extendemos  con una función de extensión y con una función de receptor
+fun Int.sumExtension(other: Int): Int = this + other // 3.sumExtension(4) --> 7 pero yo no puedo hacer sumExtension(3,4)
 val sum: Int.(Int) -> Int = { a -> this + a }
 
 // Aqui extendemos con opp que a su vez como parametro usa en vez de una función o lambda una función de extensión
@@ -18,9 +19,11 @@ fun myString(init: StringBuilder.() -> Unit): String {
 fun main() {
     println(sum(1, 2))
     println(1.sum(2))
+
     println(10.opp { this.times(2) })
     println(10.opp { plus(10) })
     println(10.opp { this * 2 })
+
     val str = myString {
         append("Hello, ".uppercase())
         append("World!")
