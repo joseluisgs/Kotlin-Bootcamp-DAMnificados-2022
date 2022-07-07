@@ -20,6 +20,7 @@ fun main() {
     with(p2) {
         nombre = "Juan"
         edad = 25
+        //saludar()
     }
     p2.saludar()
 
@@ -50,4 +51,19 @@ fun main() {
     }.also {
         it.saludar()
     }
+
+    val randomNull: String? = null
+    // Por favor ya no!!! que no estais en Java
+    if (randomNull != null) {
+        println(randomNull.length)
+    }
+
+    // Usando Scope Functions incluso puedo simular un if else
+    randomNull?.let {
+        println(it)
+    }.also { println("Hola") }
+
+    // Usando Elvis, pero e implica excribir una opcion o no
+    println(randomNull?.toString() ?: "No hay nada")
+    println(randomNull?.toString())
 }
