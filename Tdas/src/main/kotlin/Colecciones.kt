@@ -10,6 +10,8 @@ fun main() {
     println(lista.get(0)) // podemos usar getters o []
     println(lista[0])
     println(lista.size)
+    //var listaWithNulls: List<Int?>? = null // listOf(1, 2, null, 4, 5)
+
 
     val lista2 = mutableListOf<Int>(1, 2, 3, 4, 5)
     println(lista2)
@@ -18,7 +20,7 @@ fun main() {
     println(lista2)
 
     // Sets
-    val set = setOf<Int>(1, 2, 3, 4, 5)
+    val set = setOf<Int>(1, 2, 3, 4, 5, 1, 2, 3, 4)
     println(set)
     println(set.contains(3))
     println(set.contains(6))
@@ -43,5 +45,13 @@ fun main() {
     map2["cuatro"] = 4
     map2["dos"] = 5
     println(map2)
+
+    val array = ArrayList<Int>()
+    array.add(1)
+    array.get(0)
+    array.add(2)
+    array.remove(1)
+
+    val listaMutable = lista.toMutableList()
 
 }
