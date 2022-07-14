@@ -14,6 +14,7 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
   - [2.- Programación Orientada a Objetos](#2--programación-orientada-a-objetos)
   - [3.- Programación Funcional](#3--programación-funcional)
   - [4.- Tipos de Datos Abstractos](#4--tipos-de-datos-abstractos)
+  - [5.- Test y TDD](#5--test-y-tdd)
   - [Documentación](#documentación)
   - [DAMnificad@s](#damnificads)
   - [Autor](#autor)
@@ -34,6 +35,10 @@ Veremos la bases de la programación funcional: funciones de orden superior, tip
 
 ## 4.- Tipos de Datos Abstractos
 Veremos los tipos de datos abstractos: tipos de datos genéricos y manejo de colecciones.
+
+## 5.- Test y TDD
+Veremos test unitarios, test de integración y TDD, aplicando mocks cuando sea necesario. El problema se basará en [cola de procesos con prioridad y sin repetidos](https://github.com/joseluisgs/Prueba-Tecnica-Cola-Prioridad-Sin-Repetidos-Kotlin).
+Más info sobre el TDD aunque sea para otros lenguajes [aquí](https://github.com/joseluisgs/testing-js-jest#principios-del-tdd) 
 
 ## Documentación
 - [Documentación de Kotlin](https://kotlinlang.org/docs/home.html)
