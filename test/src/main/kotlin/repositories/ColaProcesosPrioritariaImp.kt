@@ -1,0 +1,3 @@
+package repositories
+
+class ColaProcesosPrioritariaImp : ColaProcesosPrioritaria 
