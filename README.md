@@ -29,20 +29,20 @@ Este bootcamp tiene como objetivo aprender a programar en Kotlin, ver sus ventaj
 Este bootcamp tiene como objetivo acercarnos a nuestros primeros pasos con Kotlin. Conoceremos los tipos de datos básicos, la nulabilidad, entradas y salidas por consola, funciones, estructuras de control y arrays.
 
 ## 2.- Programación Orientada a Objetos
-Veremos la bases de la POO: objetos, clases, encapsulación, visibilidad, herencia, interfaces. Además hablaremos más sobre tipos en Kotlin, nulabilidad, excepciones y algunas cosas más.
+Profundizaremos la bases de la POO: objetos, clases, encapsulación, visibilidad, herencia, interfaces. Además hablaremos más sobre tipos en Kotlin, nulabilidad, excepciones y algunas cosas más.
 
 ## 3.- Programación Funcional
-Veremos la bases de la programación funcional: funciones de orden superior, tipo función, funciones de extensión o lambdas con receiver.
+Comenzaremos con la bases de la programación funcional: funciones de orden superior, tipo función, funciones de extensión o lambdas con receiver.
 
 ## 4.- Tipos de Datos Abstractos
-Veremos los tipos de datos abstractos: tipos de datos genéricos y manejo de colecciones.
+Profundizaremos los tipos de datos abstractos: tipos de datos genéricos y manejo de colecciones.
 
 ## 5.- Test y TDD
-Veremos test unitarios, test de integración y TDD, aplicando mocks cuando sea necesario. El problema se basará en [cola de procesos con prioridad y sin repetidos](https://github.com/joseluisgs/Prueba-Tecnica-Cola-Prioridad-Sin-Repetidos-Kotlin).
+Realizaremos test unitarios, test de integración y TDD, aplicando mocks cuando sea necesario. El problema se basará en [cola de procesos con prioridad y sin repetidos](https://github.com/joseluisgs/Prueba-Tecnica-Cola-Prioridad-Sin-Repetidos-Kotlin).
 Más info sobre el TDD aunque sea para otros lenguajes [aquí](https://github.com/joseluisgs/testing-js-jest#principios-del-tdd) 
 
 ## 6.- Ficheros, serialización y logger
-En este apartado veremos los ficheros (especialmente de texto), serialización en dos formatos como CSV y JSON y y manejar el Logger.
+En este apartado usaremos los ficheros (especialmente de texto), serialización en dos formatos como CSV y JSON y y manejar el Logger.
 
 
 ## Documentación
