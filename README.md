@@ -9,12 +9,12 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
 
 - [DAMnificad@s Kotlin Bootcamp](#damnificads-kotlin-bootcamp)
   - [Bootcamp DAMnificad@s Kotlin](#bootcamp-damnificads-kotlin)
-  - [1.- Primeros pasos: Programación estructurada y modular.](#1--primeros-pasos-programación-estructurada-y-modular)
+  - [1.- Primeros pasos: Programación Estructurada y Modular.](#1--primeros-pasos-programación-estructurada-y-modular)
   - [2.- Programación Orientada a Objetos](#2--programación-orientada-a-objetos)
   - [3.- Programación Funcional](#3--programación-funcional)
   - [4.- Tipos de Datos Abstractos](#4--tipos-de-datos-abstractos)
   - [5.- Test y TDD](#5--test-y-tdd)
-  - [6.- Ficheros, serialización y logger](#6--ficheros-serialización-y-logger)
+  - [6.- Ficheros, Serialización y Logger](#6--ficheros-serialización-y-logger)
   - [Documentación](#documentación)
   - [DAMnificad@s](#damnificads)
   - [Autor](#autor)
@@ -25,7 +25,7 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
 ## Bootcamp DAMnificad@s Kotlin
 Este bootcamp tiene como objetivo aprender a programar en Kotlin, ver sus ventajas respecto a otros lenguajes y comprender cómo se puede usar para crear cualquier aplicación de DAM/DAW.
 
-## 1.- Primeros pasos: Programación estructurada y modular.
+## 1.- Primeros pasos: Programación Estructurada y Modular.
 Este bootcamp tiene como objetivo acercarnos a nuestros primeros pasos con Kotlin. Conoceremos los tipos de datos básicos, la nulabilidad, entradas y salidas por consola, funciones, estructuras de control y arrays.
 
 ## 2.- Programación Orientada a Objetos
@@ -41,7 +41,7 @@ Profundizaremos los tipos de datos abstractos: tipos de datos genéricos y manej
 Realizaremos test unitarios, test de integración y TDD, aplicando mocks cuando sea necesario. El problema se basará en [cola de procesos con prioridad y sin repetidos](https://github.com/joseluisgs/Prueba-Tecnica-Cola-Prioridad-Sin-Repetidos-Kotlin).
 Más info sobre el TDD aunque sea para otros lenguajes [aquí](https://github.com/joseluisgs/testing-js-jest#principios-del-tdd) 
 
-## 6.- Ficheros, serialización y logger
+## 6.- Ficheros, Serialización y Logger
 En este apartado usaremos los ficheros (especialmente de texto), serialización en dos formatos como CSV y JSON y y manejar el Logger.
 
 
