@@ -42,7 +42,7 @@ Veremos test unitarios, test de integración y TDD, aplicando mocks cuando sea n
 Más info sobre el TDD aunque sea para otros lenguajes [aquí](https://github.com/joseluisgs/testing-js-jest#principios-del-tdd) 
 
 ## 6.- Ficheros, serialización y logger
-En este apartado veremos los ficheros (especialmente de texto), serialización en dos formatos como CVS y JSON y y manejar el Logger.
+En este apartado veremos los ficheros (especialmente de texto), serialización en dos formatos como CSV y JSON y y manejar el Logger.
 
 
 ## Documentación
