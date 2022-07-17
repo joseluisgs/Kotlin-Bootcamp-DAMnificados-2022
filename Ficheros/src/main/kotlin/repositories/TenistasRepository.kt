@@ -60,7 +60,7 @@ class TenistasRepository {
 
         logger.debug("salvando a csv...")
         File(csvFile).writeText(header + "\n")
-        val csv = tenistas.map { TenistaDto.fromTenista(it) }.joinToString(separator = "\n") { it.toCsvLine() }
+        val csv = tenistas.joinToString(separator = "\n") { TenistaDto.fromTenista(it).toCsvLine() }
         File(csvFile).appendText(csv + "\n")
         logger.debug("Tenistas guardados en csv: ${tenistas.size}")
     }

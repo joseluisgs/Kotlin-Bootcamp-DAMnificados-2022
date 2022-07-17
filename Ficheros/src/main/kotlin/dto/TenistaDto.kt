@@ -46,7 +46,7 @@ data class TenistaDto(
 
     companion object {
         fun fromCsvLine(line: String): TenistaDto {
-            val campos = line.split(",")
+            val campos = line.split(",").map { it.trim() } // Si hay espacios en blanco, los quita
             return TenistaDto(
                 uuid = campos[0],
                 nombre = campos[1],
