@@ -53,7 +53,7 @@ Es una comunidad de estudiantes y desarrolladores de DAM y DAW con el objetivo d
 
 Puedes encontrarnos en Discord [DAMnificad@s](https://discord.gg/HWf9f4gc)
 
-![imagen](https://joseluisgs.github.io/img/web01.svg)
+![imagen](https://pbs.twimg.com/media/FCFV4W6WQAQTANd?format=jpg)
 
 ## Autor
 
