@@ -15,6 +15,7 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
   - [4.- Tipos de Datos Abstractos](#4--tipos-de-datos-abstractos)
   - [5.- Test y TDD](#5--test-y-tdd)
   - [6.- Ficheros, Serialización y Logger](#6--ficheros-serialización-y-logger)
+  - [7.- Bases de Datos](#7--bases-de-datos)
   - [Documentación](#documentación)
   - [DAMnificad@s](#damnificads)
   - [Autor](#autor)
@@ -32,7 +33,7 @@ Este bootcamp tiene como objetivo acercarnos a nuestros primeros pasos con Kotli
 Profundizaremos la bases de la POO: objetos, clases, encapsulación, visibilidad, herencia, interfaces. Además hablaremos más sobre tipos en Kotlin, nulabilidad, excepciones y algunas cosas más.
 
 ## 3.- Programación Funcional
-Comenzaremos con la bases de la programación funcional: funciones de orden superior, tipo función, funciones de extensión o lambdas con receiver.
+Comenzaremos con la bases de la programación funcional: funciones de orden superior, tipo función, funciones de extensión, lambdas con receiver o scope functions.
 
 ## 4.- Tipos de Datos Abstractos
 Profundizaremos los tipos de datos abstractos: tipos de datos genéricos y manejo de colecciones.
@@ -42,7 +43,10 @@ Realizaremos test unitarios, test de integración y TDD, aplicando mocks cuando 
 Más info sobre el TDD aunque sea para otros lenguajes [aquí](https://github.com/joseluisgs/testing-js-jest#principios-del-tdd) 
 
 ## 6.- Ficheros, Serialización y Logger
-En este apartado usaremos los ficheros (especialmente de texto), serialización en dos formatos como CSV y JSON y y manejar el Logger.
+En este apartado usaremos los ficheros (especialmente de texto), serialización en dos formatos como CSV y JSON y manejar el Logger.
+
+## 7.- Bases de Datos
+En este apartado aprenderemos a usar bases de datos relacionales y manejaremos el acceso a ellas usando librerías específicas que nos ayudarán a realizar el mapeo objeto relacional. Realizamos un CRUD sobre algunas entidades y manejando relaciones entre ellas. 
 
 
 ## Documentación
