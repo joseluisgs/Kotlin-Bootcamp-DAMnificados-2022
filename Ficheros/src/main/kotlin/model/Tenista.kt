@@ -1,8 +1,8 @@
 package model
 
-import extensions.toLocalDate
-import extensions.toLocalMoney
-import extensions.toLocalNumber
+import utils.toLocalDate
+import utils.toLocalMoney
+import utils.toLocalNumber
 import java.time.LocalDate
 import java.util.*
 

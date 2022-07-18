@@ -4,6 +4,10 @@ import dto.TenistaDto
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import mappers.fromCsvLineToTenistaDto
+import mappers.fromTenistaDtoToCsvLine
+import mappers.fromTenistaDtoToTenista
+import mappers.fromTenistaToTenistaDto
 import model.Tenista
 import mu.KotlinLogging
 import java.io.File
@@ -27,13 +31,13 @@ class TenistasRepository {
         // Vamos a leer linea a linea el fichero
         logger.debug("Leyendo fichero csv...")
         tenistas = File(csvFile).readLines().drop(1).map {
-            TenistaDto.fromCsvLine(it).toTenista()
+            it.fromCsvLineToTenistaDto().fromTenistaDtoToTenista()
         }
         logger.debug("Tenistas cargados desde csv: ${tenistas.size}")
     }
 
     fun saveToJson(jsonFile: String) {
-        val tenistasDtos = tenistas.map { TenistaDto.fromTenista(it) }
+        val tenistasDtos = tenistas.map { it.fromTenistaToTenistaDto() }
         val format = Json { prettyPrint = true }
         val json = format.encodeToString(tenistasDtos)
         logger.debug("salvando a json...")
@@ -50,7 +54,7 @@ class TenistasRepository {
         logger.debug("Leyendo fichero json...")
         val json = File(jsonFile).readText()
         val tenistasDtos = Json.decodeFromString<List<TenistaDto>>(json)
-        tenistas = tenistasDtos.map { it.toTenista() }
+        tenistas = tenistasDtos.map { it.fromTenistaDtoToTenista() }
         logger.debug("Tenistas cargados desde json: ${tenistas.size}")
     }
 
@@ -60,11 +64,14 @@ class TenistasRepository {
 
         logger.debug("salvando a csv...")
         File(csvFile).writeText(header + "\n")
-        val csv = tenistas.joinToString(separator = "\n") { TenistaDto.fromTenista(it).toCsvLine() }
+        val csv = tenistas.joinToString(separator = "\n") { it.fromTenistaToTenistaDto().fromTenistaDtoToCsvLine() }
         File(csvFile).appendText(csv + "\n")
         logger.debug("Tenistas guardados en csv: ${tenistas.size}")
     }
 }
+
+
+
 
 
 
