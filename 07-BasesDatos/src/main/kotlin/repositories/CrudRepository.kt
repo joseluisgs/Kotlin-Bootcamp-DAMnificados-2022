@@ -1,0 +1,4 @@
+package repositories
+
+class CrudRepository {
+}

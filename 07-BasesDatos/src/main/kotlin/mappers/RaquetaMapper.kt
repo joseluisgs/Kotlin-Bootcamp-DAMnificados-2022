@@ -1,0 +1,4 @@
+package mappers
+
+class RaquetaMapper {
+}

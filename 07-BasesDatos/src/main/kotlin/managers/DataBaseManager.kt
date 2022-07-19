@@ -1,0 +1,4 @@
+package managers
+
+class DataBaseManager {
+}
