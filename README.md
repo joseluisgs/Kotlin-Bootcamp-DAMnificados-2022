@@ -9,13 +9,15 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
 
 - [DAMnificad@s Kotlin Bootcamp](#damnificads-kotlin-bootcamp)
   - [Bootcamp DAMnificad@s Kotlin](#bootcamp-damnificads-kotlin)
-  - [1.- Primeros pasos: Programación Estructurada y Modular.](#1--primeros-pasos-programación-estructurada-y-modular)
-  - [2.- Programación Orientada a Objetos](#2--programación-orientada-a-objetos)
-  - [3.- Programación Funcional](#3--programación-funcional)
-  - [4.- Tipos de Datos Abstractos](#4--tipos-de-datos-abstractos)
-  - [5.- Test y TDD](#5--test-y-tdd)
-  - [6.- Ficheros, Serialización y Logger](#6--ficheros-serialización-y-logger)
-  - [7.- Bases de Datos](#7--bases-de-datos)
+    - [1.- Primeros pasos: Programación Estructurada y Modular.](#1--primeros-pasos-programación-estructurada-y-modular)
+    - [2.- Programación Orientada a Objetos](#2--programación-orientada-a-objetos)
+    - [3.- Programación Funcional](#3--programación-funcional)
+    - [4.- Tipos de Datos Abstractos](#4--tipos-de-datos-abstractos)
+    - [5.- Test y TDD](#5--test-y-tdd)
+    - [6.- Ficheros, Serialización y Logger](#6--ficheros-serialización-y-logger)
+    - [7.- Bases de Datos](#7--bases-de-datos)
+    - [8.- Inyección de dependencias](#8--inyección-de-dependencias)
+    - [9.-Despliegue y documentación](#9-despliegue-y-documentación)
   - [Documentación](#documentación)
   - [DAMnificad@s](#damnificads)
   - [Autor](#autor)
@@ -26,31 +28,37 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
 ## Bootcamp DAMnificad@s Kotlin
 Este bootcamp tiene como objetivo aprender a programar en Kotlin, ver sus ventajas respecto a otros lenguajes y comprender cómo se puede usar para crear cualquier aplicación de DAM/DAW.
 
-## 1.- Primeros pasos: Programación Estructurada y Modular.
+### 1.- Primeros pasos: Programación Estructurada y Modular.
 Este bootcamp tiene como objetivo acercarnos a nuestros primeros pasos con Kotlin. Conoceremos los tipos de datos básicos, la nulabilidad, entradas y salidas por consola, funciones, estructuras de control y arrays.
 
-## 2.- Programación Orientada a Objetos
+### 2.- Programación Orientada a Objetos
 Profundizaremos la bases de la POO: objetos, clases, encapsulación, visibilidad, herencia, interfaces. Además hablaremos más sobre tipos en Kotlin, nulabilidad, excepciones y algunas cosas más.
 
-## 3.- Programación Funcional
+### 3.- Programación Funcional
 Comenzaremos con la bases de la programación funcional: funciones de orden superior, tipo función, funciones de extensión, lambdas con receiver o scope functions.
 
-## 4.- Tipos de Datos Abstractos
+### 4.- Tipos de Datos Abstractos
 Profundizaremos los tipos de datos abstractos: tipos de datos genéricos y manejo de colecciones.
 
-## 5.- Test y TDD
+### 5.- Test y TDD
 Realizaremos test unitarios, test de integración y TDD, aplicando mocks cuando sea necesario. El problema se basará en [cola de procesos con prioridad y sin repetidos](https://github.com/joseluisgs/Prueba-Tecnica-Cola-Prioridad-Sin-Repetidos-Kotlin).
 Más info sobre el TDD aunque sea para otros lenguajes [aquí](https://github.com/joseluisgs/testing-js-jest#principios-del-tdd) 
 
-## 6.- Ficheros, Serialización y Logger
+### 6.- Ficheros, Serialización y Logger
 En este apartado usaremos los ficheros (especialmente de texto), serialización en dos formatos como CSV y JSON y manejar el Logger.
 
 Nuestro ejemplo: Listas de tenistas
 
-## 7.- Bases de Datos
+### 7.- Bases de Datos
 En este apartado aprenderemos a usar bases de datos relacionales y manejaremos el acceso a ellas usando librerías específicas que nos ayudarán a realizar el mapeo objeto relacional. Realizamos un CRUD sobre algunas entidades y manejando relaciones entre ellas.
 
 Nuestro ejemplo: Un tenista tiene un modelo de raqueta. Una raqueta es usada por muchos tenistas: 1-M. Un tenista juega varios torneos, un torneo tiene muchos tenistas: N-M.
+
+### 8.- Inyección de dependencias
+Nos acercamos al final del bootcamp para aprender a usar inyección de dependencias. Es una patrón de los más usados que nos permite extender, reutilizar y no acoplar nuestro código faciltando su mantenimiento y testeo. En esta sesión vamos a usar una librería que nos facilitará este proceso y mejorar el código realizado. Nos basaremos en [este proyecto](https://github.com/joseluisgs/Kotlin-DI-Ejemplos).
+
+### 9.-Despliegue y documentación
+Realizaremos un proyecto que nos permita poner en práctica todo lo aprendido en este bootcamp. Desplegaremos este proyecto como jar y lo documentaremos en HTML de manera automatizada.
 
 
 ## Documentación
