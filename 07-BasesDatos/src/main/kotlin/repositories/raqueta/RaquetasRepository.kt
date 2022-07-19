@@ -1,6 +1,6 @@
 package repositories.raqueta
 
-import model.Raqueta
+import models.Raqueta
 import repositories.CrudRepository
 import java.util.*
 

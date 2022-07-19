@@ -1,8 +1,8 @@
 import config.AppConfig
 import entities.*
 import managers.DataBaseManager
-import model.Raqueta
-import model.Tenista
+import models.Raqueta
+import models.Tenista
 import org.jetbrains.exposed.sql.SizedCollection
 import org.jetbrains.exposed.sql.deleteAll
 import org.jetbrains.exposed.sql.insert

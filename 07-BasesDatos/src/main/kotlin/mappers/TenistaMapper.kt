@@ -1,7 +1,7 @@
 package mappers
 
 import entities.TenistaDao
-import model.Tenista
+import models.Tenista
 
 // Mapeadores de dados para Tenista
 

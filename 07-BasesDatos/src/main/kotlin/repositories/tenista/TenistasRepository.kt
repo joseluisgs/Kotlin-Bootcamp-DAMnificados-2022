@@ -1,6 +1,6 @@
 package repositories.tenista
 
-import model.Tenista
+import models.Tenista
 import repositories.CrudRepository
 import java.util.*
 

@@ -1,7 +1,7 @@
 package mappers
 
 import entities.RaquetaDao
-import model.Raqueta
+import models.Raqueta
 
 fun RaquetaDao.fromRaquetaDaoToRaqueta(): Raqueta {
     return Raqueta(

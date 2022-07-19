@@ -1,4 +1,4 @@
-package model
+package models
 
 import utils.toLocalDate
 import utils.toLocalMoney

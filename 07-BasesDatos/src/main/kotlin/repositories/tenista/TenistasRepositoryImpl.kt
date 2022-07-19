@@ -4,7 +4,7 @@ import Exceptions.RaquetaException
 import entities.RaquetaDao
 import entities.TenistaDao
 import mappers.fromTenistaDaoToTenista
-import model.Tenista
+import models.Tenista
 import mu.KotlinLogging
 import org.jetbrains.exposed.dao.UUIDEntityClass
 import org.jetbrains.exposed.sql.transactions.transaction

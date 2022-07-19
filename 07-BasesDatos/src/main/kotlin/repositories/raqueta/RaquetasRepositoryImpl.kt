@@ -2,7 +2,7 @@ package repositories.raqueta
 
 import entities.RaquetaDao
 import mappers.fromRaquetaDaoToRaqueta
-import model.Raqueta
+import models.Raqueta
 import mu.KotlinLogging
 import org.jetbrains.exposed.dao.UUIDEntityClass
 import org.jetbrains.exposed.sql.transactions.transaction
