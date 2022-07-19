@@ -7,21 +7,22 @@ import java.time.LocalDate
 import java.util.*
 
 data class Tenista(
-    val uuid: UUID = UUID.randomUUID(),
-    val nombre: String,
-    val ranking: Int,
-    val fechaNacimiento: LocalDate,
-    val añoProfesional: Int,
-    val altura: Int,
-    val peso: Int,
-    val ganancias: Double,
-    val manoDominante: ManoDominante,
-    val tipoReves: TipoReves,
-    val puntos: Int
+    val id: UUID = UUID.randomUUID(),
+    var nombre: String,
+    var ranking: Int,
+    var fechaNacimiento: LocalDate,
+    var añoProfesional: Int,
+    var altura: Int,
+    var peso: Int,
+    var ganancias: Double,
+    var manoDominante: ManoDominante,
+    var tipoReves: TipoReves,
+    var puntos: Int,
+    var raqueta: Raqueta? = null,
 ) {
 
     override fun toString(): String {
-        return "Tenista(uuid=$uuid, nombre='$nombre', ranking=$ranking, " +
+        return "Tenista(uuid=$id, nombre='$nombre', ranking=$ranking, " +
                 "fechaNacimiento=${fechaNacimiento.toLocalDate()}, " +
                 "añoProfesional=$añoProfesional, " +
                 "altura=${(altura.toDouble() / 100).toLocalNumber()} cm, " +
@@ -29,7 +30,8 @@ data class Tenista(
                 "ganancias=${ganancias.toLocalMoney()}, " +
                 "manoDominante=${manoDominante.mano}, " +
                 "tipoReves=${tipoReves.tipo}, " +
-                "puntos=$puntos)"
+                "puntos=$puntos, " +
+                "raqueta=${raqueta})"
     }
 
     // ENUMS de la propia clase
@@ -39,7 +41,7 @@ data class Tenista(
 
         companion object {
             fun from(manoDominante: String): ManoDominante {
-                return when (manoDominante) {
+                return when (manoDominante.uppercase()) {
                     "DERECHA" -> DERECHA
                     "IZQUIERDA" -> IZQUIERDA
                     else -> throw IllegalArgumentException("ManoDominante no reconocida")
@@ -54,7 +56,7 @@ data class Tenista(
 
         companion object {
             fun from(tipoReves: String): TipoReves {
-                return when (tipoReves) {
+                return when (tipoReves.uppercase()) {
                     "UNA MANO" -> UNA_MANO
                     "DOS MANOS" -> DOS_MANOS
                     else -> throw IllegalArgumentException("TipoReves no reconocida")

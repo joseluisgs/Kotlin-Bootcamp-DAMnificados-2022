@@ -1,3 +1,3 @@
 package Exceptions
 
-class RaquetaException(message: String) : Exception(message)
+class TenistaException(message: String) : Exception(message)

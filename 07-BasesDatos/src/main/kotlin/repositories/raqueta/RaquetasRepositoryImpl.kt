@@ -3,20 +3,25 @@ package repositories.raqueta
 import entities.RaquetaDao
 import mappers.fromRaquetaDaoToRaqueta
 import model.Raqueta
+import mu.KotlinLogging
 import org.jetbrains.exposed.dao.UUIDEntityClass
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.*
 
-class RaquetaRepositoryImpl(
+private val logger = KotlinLogging.logger {}
+
+class RaquetasRepositoryImpl(
     private val raquetaDao: UUIDEntityClass<RaquetaDao>,
-    //private val tenistaDao: UUIDEntityClass<TenistaDao>
-) : RaquetaRepository {
+    // private val tenistaDao: UUIDEntityClass<TenistaDao>
+) : RaquetasRepository {
 
     override fun findAll(): List<Raqueta> = transaction {
+        logger.debug { "findAll()" }
         raquetaDao.all().map { it.fromRaquetaDaoToRaqueta() }
     }
 
     override fun findById(id: UUID): Raqueta? = transaction {
+        logger.debug { "findById($id)" }
         raquetaDao.findById(id)
             ?.fromRaquetaDaoToRaqueta() //?: throw RaquetaException("Raqueta no encontrada con id: $id") // No es obligatorio el throw, porque devolvemos Raqueta? lo sería si es Raqueta
     }
@@ -27,6 +32,7 @@ class RaquetaRepositoryImpl(
         // Esta alrternativa let/run es muy usada en Kotlin, como el if else...
         existe?.let {
             // Si existe actualizamos
+            logger.debug { "save($entity) - actualizando" }
             existe.apply {
                 marca = entity.marca
                 precio = entity.precio
@@ -35,8 +41,9 @@ class RaquetaRepositoryImpl(
                 })*/
             }.fromRaquetaDaoToRaqueta()
         } ?: run {
-            // No existe, lo guardamos
-            raquetaDao.new {
+            logger.debug { "save($entity) - creando" }
+            // No existe, lo guardamos, le pongo el ID que he generado en el DATA val, si no podría haber usado el suyo sin paranetesis
+            raquetaDao.new(entity.id) {
                 marca = entity.marca
                 precio = entity.precio
                 /*tenistas = SizedCollection(entity.tenistas.map {
@@ -51,8 +58,14 @@ class RaquetaRepositoryImpl(
         // Existe?
         val existe = raquetaDao.findById(entity.id) ?: return@transaction false
         // Si existe lo borramos
+        logger.debug { "delete($entity) - borrando" }
         existe.delete()
         true
     }
+
+    // Esto me lo he invitado a hacerlo, pero no lo he hecho, porque no lo he hecho en el curso...
+    /*override fun getTenistas(entity: Raqueta): List<Tenista> = transaction {
+        tenistaDao.all().filter { it.raqueta.id.value == entity.id }.map { it.fromTenistaDaoToTenista() }
+    }*/
 }
 

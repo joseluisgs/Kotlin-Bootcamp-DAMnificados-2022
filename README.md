@@ -45,8 +45,12 @@ Más info sobre el TDD aunque sea para otros lenguajes [aquí](https://github.co
 ## 6.- Ficheros, Serialización y Logger
 En este apartado usaremos los ficheros (especialmente de texto), serialización en dos formatos como CSV y JSON y manejar el Logger.
 
+Nuestro ejemplo: Listas de tenistas
+
 ## 7.- Bases de Datos
-En este apartado aprenderemos a usar bases de datos relacionales y manejaremos el acceso a ellas usando librerías específicas que nos ayudarán a realizar el mapeo objeto relacional. Realizamos un CRUD sobre algunas entidades y manejando relaciones entre ellas. 
+En este apartado aprenderemos a usar bases de datos relacionales y manejaremos el acceso a ellas usando librerías específicas que nos ayudarán a realizar el mapeo objeto relacional. Realizamos un CRUD sobre algunas entidades y manejando relaciones entre ellas.
+
+Nuestro ejemplo: Un tenista tiene un modelo de raqueta. Una raqueta es usada por muchos tenistas: 1-M. Un tenista juega varios torneos, un torneo tiene muchos tenistas: N-M.
 
 
 ## Documentación

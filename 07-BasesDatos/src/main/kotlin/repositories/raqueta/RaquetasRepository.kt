@@ -4,4 +4,6 @@ import model.Raqueta
 import repositories.CrudRepository
 import java.util.*
 
-interface RaquetaRepository : CrudRepository<Raqueta, UUID>
+interface RaquetasRepository : CrudRepository<Raqueta, UUID> {
+    //fun getTenistas(entity: Raqueta): List<Tenista>
+}
