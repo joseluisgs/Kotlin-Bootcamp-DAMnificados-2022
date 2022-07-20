@@ -40,7 +40,8 @@ fun TenistaDto.fromTenistaDtoToTenista(): Tenista {
         ganancias = ganancias,
         manoDominante = Tenista.ManoDominante.from(manoDominante),
         tipoReves = Tenista.TipoReves.from(tipoReves),
-        puntos = puntos
+        puntos = puntos,
+        raqueta = raqueta?.fromRaquetaDtoToRaqueta()
     )
 }
 
@@ -59,7 +60,8 @@ fun Tenista.fromTenistaToTenistaDto(): TenistaDto {
         ganancias = ganancias,
         manoDominante = manoDominante.mano,
         tipoReves = tipoReves.tipo,
-        puntos = puntos
+        puntos = puntos,
+        raqueta = raqueta?.fromRaquetaToRaquetaDto()
     )
 }
 

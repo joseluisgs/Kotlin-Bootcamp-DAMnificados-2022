@@ -37,13 +37,15 @@ class ResumenApp : KoinComponent {
         println("Raquetas: $raquetas")
 
         val tenistasCsvStorage: StorageTenistasCsvService = StorageTenistasCsvServiceImpl()
-        val tenistas = tenistasCsvStorage.loadFromFile(File(TENISTAS_INPUT_CSV_FILE))
+        var tenistas = tenistasCsvStorage.loadFromFile(File(TENISTAS_INPUT_CSV_FILE))
         println("Tenistas: $tenistas")
 
         raquetasCsvStorage.saveToFile(File(RAQUETAS_OUTPUT_CSV_FILE), raquetas.sortedBy { it.marca })
         tenistasCsvStorage.saveToFile(File(TENISTAS_OUTPUT_CSV_FILE), tenistas.sortedBy { it.ranking })
 
         val tenistasJsonStorage: StorageTenistasJsonService = StorageTenistasJsonServiceImpl()
-        tenistasJsonStorage.saveToFile(File(TENISTAS_OUTPUT_JSON_FILE), tenistas)
+        tenistasJsonStorage.saveToFile(File(TENISTAS_OUTPUT_JSON_FILE), tenistas.sortedBy { it.ranking })
+        tenistas = tenistasJsonStorage.loadFromFile(File(TENISTAS_INPUT_JSON_FILE))
+        println("Tenistas: $tenistas")
     }
 }

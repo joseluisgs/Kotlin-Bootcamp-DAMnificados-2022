@@ -15,6 +15,7 @@ import java.io.File
 private val logger = KotlinLogging.logger {}
 
 class StorageRaquetasCsvServiceImpl : StorageRaquetasCsvService {
+    
     /**
      * Método que devuelve una lista de raquetas de un archivo csv.
      * @param file Archivo csv.
