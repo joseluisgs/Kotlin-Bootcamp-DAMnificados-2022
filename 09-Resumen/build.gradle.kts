@@ -33,7 +33,7 @@ repositories {
 dependencies {
     // Koin
     implementation("io.insert-koin:koin-core:$koinVersion")
-    testImplementation("io.insert-koin:koin-test:$koinVersion")
+    //testImplementation("io.insert-koin:koin-test:$koinVersion")
     // Koin annotations
     implementation("io.insert-koin:koin-annotations:$koinKspVersion")
     ksp("io.insert-koin:koin-ksp-compiler:$koinKspVersion")

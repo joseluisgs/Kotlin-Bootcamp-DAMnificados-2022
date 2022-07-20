@@ -32,6 +32,13 @@ class ResumenApp : KoinComponent {
         println("\uD83D\uDC4B Hola Resumen")
         println("===============")
 
+        jugandoConStorage()
+    }
+
+    /**
+     * Jugando con los servicios de Storage
+     */
+    private fun jugandoConStorage() {
         val raquetasCsvStorage: StorageRaquetasCsvService = StorageRaquetasCsvServiceImpl()
         val raquetas = raquetasCsvStorage.loadFromFile(File(RAQUETAS_INPUT_CSV_FILE))
         println("Raquetas: $raquetas")
