@@ -45,7 +45,7 @@ class StorageTenistasCsvServiceImpl : StorageTenistasCsvService {
         logger.debug { "Guardando tenistas en fichero csv $file..." }
         file.writeText(header + "\n")
         val tenistas = data.map { it.fromTenistaToTenistaDto().fromTenistaDtoToCsvLine() }
-        file.writeText(tenistas.joinToString("\n"))
+        file.appendText(tenistas.joinToString("\n"))
         logger.debug("Tenistas guardados en csv: ${tenistas.size}")
     }
 }

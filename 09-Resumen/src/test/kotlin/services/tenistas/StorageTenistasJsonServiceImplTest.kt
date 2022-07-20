@@ -1,15 +1,15 @@
 package services.tenistas
 
+import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.assertThrows
 import java.io.File
 
-internal class StorageTenistasCsvServiceImplTest {
+internal class StorageTenistasJsonServiceImplTest {
 
-    private val storage: StorageTenistasCsvService = StorageTenistasCsvServiceImpl()
-    private val fileIn = File("src/test/resources/tenistas.csv")
-    private val fileOut = File("src/test/resources/tenistas-output.csv")
+    private val storage: StorageTenistasJsonService = StorageTenistasJsonServiceImpl()
+    private val fileIn = File("src/test/resources/tenistas.json")
+    private val fileOut = File("src/test/resources/tenistas-output.json")
 
     @Test
     fun loadFromFile() {
@@ -37,9 +37,9 @@ internal class StorageTenistasCsvServiceImplTest {
     @Test
     fun loadFromFileException() {
         val ex = assertThrows<IllegalArgumentException> {
-            storage.loadFromFile(File("error.csv"))
+            storage.loadFromFile(File("error.json"))
         }
 
-        assert(ex.message == "El fichero error.csv no existe")
+        assert(ex.message == "El fichero error.json no existe")
     }
 }

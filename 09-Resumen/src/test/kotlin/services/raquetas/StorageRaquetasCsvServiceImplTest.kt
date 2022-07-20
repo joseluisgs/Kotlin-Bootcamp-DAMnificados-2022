@@ -3,6 +3,7 @@ package services.raquetas
 import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
+import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
 import java.io.File
 
@@ -34,5 +35,14 @@ internal class StorageRaquetasCsvServiceImplTest {
             { assert(res2.size == res.size) },
             { assert(res2 == res) }
         )
+    }
+
+    @Test
+    fun loadFromFileException() {
+        val ex = assertThrows<IllegalArgumentException> {
+            storage.loadFromFile(File("error.csv"))
+        }
+
+        assert(ex.message == "El fichero error.csv no existe")
     }
 }

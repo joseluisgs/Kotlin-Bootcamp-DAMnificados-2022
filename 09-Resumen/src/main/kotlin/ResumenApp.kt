@@ -15,10 +15,13 @@ import java.io.File
 private val logger = KotlinLogging.logger {}
 
 const val APP_PROPERTIES = "src/main/resources/config.properties"
+
 const val TENISTAS_INPUT_CSV_FILE = "data/tenistas.csv"
 const val RAQUETAS_INPUT_CSV_FILE = "data/raquetas.csv"
+
 const val RAQUETAS_OUTPUT_CSV_FILE = "data/raquetas-output.csv"
 const val TENISTAS_OUTPUT_CSV_FILE = "data/tenistas-output.csv"
+
 const val TENISTAS_INPUT_JSON_FILE = "data/tenistas.json"
 const val TENISTAS_OUTPUT_JSON_FILE = "data/tenistas-output.json"
 
