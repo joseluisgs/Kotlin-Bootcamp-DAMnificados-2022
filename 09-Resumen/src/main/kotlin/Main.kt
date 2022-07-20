@@ -1,3 +1,14 @@
+import org.koin.core.context.GlobalContext.startKoin
+
+/**
+ * Modulo Main
+ */
 fun main() {
-    println("Hello, world!")
+    // Lanzamos la configuración de Koin
+    startKoin {
+        // Modulos de Koin
+    }
+
+    // ejecutamos nuestra App
+    ResumenApp().run()
 }
