@@ -1,6 +1,6 @@
 package services.raquetas
 
-import dto.RaquetaDto
+import mappers.fromCsvLineToRaquetaDto
 import mappers.fromRaquetaDtoToRaqueta
 import models.Raqueta
 import mu.KotlinLogging
@@ -15,6 +15,8 @@ private val logger = KotlinLogging.logger {}
 class StorageRaquetasCsvServiceImpl : StorageRaquetasCsvService {
     /**
      * Método que devuelve una lista de raquetas de un archivo csv.
+     * @param fileName Archivo csv.
+     * @return Lista de raquetas.
      */
     override fun loadFromFile(fileName: String): List<Raqueta> {
         if (!File(fileName).exists()) {
@@ -23,11 +25,9 @@ class StorageRaquetasCsvServiceImpl : StorageRaquetasCsvService {
         }
         // Vamos a leer linea a linea el fichero y la procesamos de DTO a modelo
         logger.debug { "Leyendo fichero csv..." }
-        val raquetas = File(fileName).readLines().drop(1).map { line ->
-            val (id, marca, modelo, precio, peso) = line.split(",")
-            RaquetaDto(id, marca, modelo, precio.toDouble(), peso.toInt())
-        }.map { it.fromRaquetaDtoToRaqueta() }
-        logger.debug("Tenistas cargados desde csv: ${raquetas.size}")
+        val raquetas = File(fileName).readLines().drop(1)
+            .map { it.fromCsvLineToRaquetaDto().fromRaquetaDtoToRaqueta() }
+        logger.debug("Raquetas cargadas desde csv: ${raquetas.size}")
         return raquetas
     }
 
