@@ -27,13 +27,15 @@ class ResumenApp : KoinComponent {
         println("\uD83D\uDC4B Hola Resumen")
         println("===============")
 
-        // Creamos los servicios que necesitamos
         val raquetasCsvStorage: StorageRaquetasCsvService = StorageRaquetasCsvServiceImpl()
         val raquetas = raquetasCsvStorage.loadFromFile(RAQUETAS_INPUT_CSV_FILE)
         println("Raquetas: $raquetas")
+
         val tenistasCsvStorage: StorageTenistasCsvService = StorageTenistasCsvServiceImpl()
         val tenistas = tenistasCsvStorage.loadFromFile(TENISTAS_INPUT_CSV_FILE)
         println("Tenistas: $tenistas")
-        raquetasCsvStorage.saveToFile(RAQUETAS_OUTPUT_FILE, raquetas)
+
+        raquetasCsvStorage.saveToFile(RAQUETAS_OUTPUT_FILE, raquetas.sortedBy { it.marca })
+        tenistasCsvStorage.saveToFile(TENISTAS_OUTPUT_FILE, tenistas.sortedBy { it.ranking })
     }
 }

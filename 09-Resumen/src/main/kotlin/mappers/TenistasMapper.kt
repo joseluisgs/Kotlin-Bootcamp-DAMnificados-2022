@@ -43,3 +43,31 @@ fun TenistaDto.fromTenistaDtoToTenista(): Tenista {
         puntos = puntos
     )
 }
+
+/**
+ * Extension de Tenista a TenistaDto
+ */
+fun Tenista.fromTenistaToTenistaDto(): TenistaDto {
+    return TenistaDto(
+        id = id.toString(),
+        nombre = nombre,
+        ranking = ranking,
+        fechaNacimiento = fechaNacimiento.toString(),
+        añoProfesional = añoProfesional,
+        altura = altura,
+        peso = peso,
+        ganancias = ganancias,
+        manoDominante = manoDominante.mano,
+        tipoReves = tipoReves.tipo,
+        puntos = puntos
+    )
+}
+
+/**
+ * Extension de TenistaDto a CSV Line (String)
+ */
+fun TenistaDto.fromTenistaDtoToCsvLine(): String {
+    return "$id,$nombre,$ranking,$fechaNacimiento,$añoProfesional,$altura,$peso,$ganancias,$manoDominante,$tipoReves,$puntos"
+}
+
+
