@@ -2,7 +2,9 @@ package dto
 
 import kotlinx.serialization.Serializable
 
-
+/**
+ * DTO de Tenista para CSV y JSON
+ */
 @Serializable
 data class TenistaDto(
     val id: String,

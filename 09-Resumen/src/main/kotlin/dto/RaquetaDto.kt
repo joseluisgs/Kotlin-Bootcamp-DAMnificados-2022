@@ -2,6 +2,9 @@ package dto
 
 import kotlinx.serialization.Serializable
 
+/**
+ * DTO de Raqueta para CSV y JSON
+ */
 @Serializable
 class RaquetaDto(
     val id: String,

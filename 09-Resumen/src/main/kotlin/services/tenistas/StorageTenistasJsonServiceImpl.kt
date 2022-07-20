@@ -2,6 +2,9 @@ package services.tenistas
 
 import models.Tenista
 
+/**
+ * Implementación de la interfaz StoreTenistaJsonService
+ */
 class StorageTenistasJsonServiceImpl : StorageTenistasJsonService {
     override fun loadFromFile(fileName: String): List<Tenista> {
         TODO("Not yet implemented")
