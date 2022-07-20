@@ -3,12 +3,12 @@ package anotaciones.component
 import org.koin.core.annotation.Single
 
 @Single
-class CoffeeMaker(private val pump: Pump, private val heater: Heater) {
+data class Cafetera(private val bomba: Bomba, private val calentador: Calentador) {
 
-    fun brew() {
-        heater.encender()
-        pump.bombear()
+    fun servir() {
+        calentador.encender()
+        bomba.bombear()
         println("[_]P !Taza de Café! [_]P ")
-        heater.apagar()
+        calentador.apagar()
     }
 }

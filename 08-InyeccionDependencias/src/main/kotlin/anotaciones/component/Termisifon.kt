@@ -3,9 +3,9 @@ package anotaciones.component
 import org.koin.core.annotation.Single
 
 @Single
-class Thermosiphon(private val heater: Heater) : Pump {
+class Termisifon(private val calentador: Calentador) : Bomba {
     override fun bombear() {
-        if (heater.estaCaliente()) {
+        if (calentador.estaCaliente()) {
             println("=> => bombeando => =>")
         }
     }

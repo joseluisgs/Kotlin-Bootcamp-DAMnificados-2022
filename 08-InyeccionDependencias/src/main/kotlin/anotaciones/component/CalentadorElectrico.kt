@@ -3,7 +3,7 @@ package anotaciones.component
 import org.koin.core.annotation.Single
 
 @Single
-class ElectricHeater : Heater {
+class CalentadorElectrico : Calentador {
 
     private var calentando: Boolean = false
 

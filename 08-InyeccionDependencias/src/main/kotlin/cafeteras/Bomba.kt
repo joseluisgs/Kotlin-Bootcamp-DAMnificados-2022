@@ -1,4 +1,4 @@
-package anotaciones.component
+package koin.cafeteras
 
 interface Bomba {
     fun bombear()
