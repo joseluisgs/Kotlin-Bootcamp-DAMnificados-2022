@@ -1,5 +1,6 @@
 package models
 
+import utils.toLocalMoney
 import java.util.*
 
 /**
@@ -11,4 +12,8 @@ data class Raqueta(
     val modelo: String,
     var precio: Double,
     var peso: Int,
-)
+) {
+    override fun toString(): String {
+        return "Raqueta(id=$id, marca='$marca', modelo='$modelo', precio=${precio.toLocalMoney()}, peso=$peso)"
+    }
+}

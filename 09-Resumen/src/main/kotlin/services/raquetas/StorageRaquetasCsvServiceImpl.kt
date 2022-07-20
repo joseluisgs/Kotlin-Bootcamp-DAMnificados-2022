@@ -1,7 +1,9 @@
 package services.raquetas
 
 import mappers.fromCsvLineToRaquetaDto
+import mappers.fromRaquetaDtoToCsvLine
 import mappers.fromRaquetaDtoToRaqueta
+import mappers.fromRaquetaToRaquetaDto
 import models.Raqueta
 import mu.KotlinLogging
 import java.io.File
@@ -24,7 +26,7 @@ class StorageRaquetasCsvServiceImpl : StorageRaquetasCsvService {
             throw IllegalArgumentException("El fichero $fileName no existe")
         }
         // Vamos a leer linea a linea el fichero y la procesamos de DTO a modelo
-        logger.debug { "Leyendo fichero csv..." }
+        logger.debug { "Leyendo fichero csv $fileName..." }
         val raquetas = File(fileName).readLines().drop(1)
             .map { it.fromCsvLineToRaquetaDto().fromRaquetaDtoToRaqueta() }
         logger.debug("Raquetas cargadas desde csv: ${raquetas.size}")
@@ -32,7 +34,12 @@ class StorageRaquetasCsvServiceImpl : StorageRaquetasCsvService {
     }
 
     override fun saveToFile(fileName: String, data: List<Raqueta>) {
-        TODO("Not yet implemented")
+        val header = "id,marca,modelo, precio, peso"
+        logger.debug { "Guardando raquetas en fichero csv $fileName..." }
+        File(fileName).writeText(header + "\n")
+        val raquetas = data.map { it.fromRaquetaToRaquetaDto().fromRaquetaDtoToCsvLine() }
+        File(fileName).appendText(raquetas.joinToString("\n"))
+        logger.debug("Raquetas guardadas en fichero csv: ${raquetas.size}")
     }
 }
 

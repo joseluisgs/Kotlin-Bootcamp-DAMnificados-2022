@@ -16,7 +16,23 @@ fun RaquetaDto.fromRaquetaDtoToRaqueta(): Raqueta {
  * Extension de String CSV a RaquetaDto
  */
 fun String.fromCsvLineToRaquetaDto(): RaquetaDto {
-    val (id, marca, modelo, precio, peso) = this.split(',')
+    val (id, marca, modelo, precio, peso) = this.split(',').map { it.trim() }
     return RaquetaDto(id, marca, modelo, precio.toDouble(), peso.toInt())
 
 }
+
+/**
+ * Extension de Raqueta a RaquetaDto
+ */
+fun Raqueta.fromRaquetaToRaquetaDto(): RaquetaDto {
+    return RaquetaDto(id.toString(), marca, modelo, precio, peso)
+}
+
+/**
+ * Extension de RaquetaDto a String CSV Linea
+ */
+fun RaquetaDto.fromRaquetaDtoToCsvLine(): String {
+    return "$id,$marca,$modelo,$precio,$peso"
+}
+
+
