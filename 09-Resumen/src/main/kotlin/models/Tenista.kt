@@ -22,7 +22,7 @@ data class Tenista(
 ) {
 
     override fun toString(): String {
-        return "Tenista(uuid=$id, nombre='$nombre', ranking=$ranking, " +
+        return "Tenista(id=$id, nombre='$nombre', ranking=$ranking, " +
                 "fechaNacimiento=${fechaNacimiento.toLocalDate()}, " +
                 "añoProfesional=$añoProfesional, " +
                 "altura=${(altura.toDouble() / 100).toLocalNumber()} cm, " +

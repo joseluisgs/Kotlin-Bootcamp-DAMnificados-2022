@@ -1,20 +1,22 @@
 package services.base
 
+import java.io.File
+
 /**
  * Sistema de almacenamiento básico
  */
 interface Storage<T> {
     /**
      * Carga de un fichero de almacenamiento
-     * @param fileName Fichero de almacenamiento
+     * @param file Fichero de almacenamiento
      * @returns Objeto de almacenamiento
      */
-    fun loadFromFile(fileName: String): List<T>
+    fun loadFromFile(file: File): List<T>
 
     /**
      * Guardado de un fichero de almacenamiento
-     * @param fileName Fichero de almacenamiento
+     * @param file Fichero de almacenamiento
      * @param data Objeto de almacenamiento
      */
-    fun saveToFile(fileName: String, data: List<T>)
+    fun saveToFile(file: File, data: List<T>)
 }
