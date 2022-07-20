@@ -1,6 +1,9 @@
 import config.AppConfig
 import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
+import services.raquetas.StorageRaquetasCsvService
+import services.raquetas.StorageRaquetasCsvServiceImpl
+import java.io.File
 
 /**
  * Clase de de la Aplicación
@@ -19,7 +22,10 @@ class ResumenApp : KoinComponent {
         println("\uD83D\uDC4B Hola Resumen")
         println("===============")
 
-        // Leemos la configuracón del proyecto
+        // Creamos los servicios que necesitamos
+        val raquetasCsvStorage: StorageRaquetasCsvService = StorageRaquetasCsvServiceImpl()
+        val raquetas = raquetasCsvStorage.loadFromFile("data${File.separator}raquetas.csv")
+        println("Raquetas: $raquetas")
 
     }
 }
