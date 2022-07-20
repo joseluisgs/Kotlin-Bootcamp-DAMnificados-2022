@@ -17,7 +17,7 @@ Ejemplos de código de Kotlin para el Bootcamp de DAMnificad@s.
     - [6. Ficheros, Serialización y Logger](#6-ficheros-serialización-y-logger)
     - [7. Bases de Datos](#7-bases-de-datos)
     - [8. Inyección de dependencias](#8-inyección-de-dependencias)
-    - [9. Despliegue y documentación](#9-despliegue-y-documentación)
+    - [9. Resumen: Despliegue y documentación](#9-resumen-despliegue-y-documentación)
   - [Documentación](#documentación)
   - [DAMnificad@s](#damnificads)
   - [Autor](#autor)
@@ -57,7 +57,7 @@ Nuestro ejemplo: Un tenista tiene un modelo de raqueta. Una raqueta es usada por
 ### 8. Inyección de dependencias
 Nos acercamos al final del bootcamp para aprender a usar inyección de dependencias. Es una patrón de los más usados que nos permite extender, reutilizar y no acoplar nuestro código facilitando su mantenimiento y testeo. En esta sesión vamos a usar una librería que nos facilitará este proceso y mejorar el código realizado. Nos basaremos en [este proyecto](https://github.com/joseluisgs/Kotlin-DI-Ejemplos).
 
-### 9. Despliegue y documentación
+### 9. Resumen: Despliegue y documentación
 Realizaremos un proyecto que nos permita poner en práctica todo lo aprendido en este bootcamp. Desplegaremos este proyecto como jar y lo documentaremos en HTML de manera automatizada.
 
 
