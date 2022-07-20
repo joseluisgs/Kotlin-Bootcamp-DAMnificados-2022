@@ -26,7 +26,7 @@ const val TENISTAS_INPUT_JSON_FILE = "data/tenistas.json"
 const val TENISTAS_OUTPUT_JSON_FILE = "data/tenistas-output.json"
 
 class ResumenApp : KoinComponent {
-    var appConfig: AppConfig = AppConfig.fromPropertiesFile(APP_PROPERTIES)
+    var appConfig: AppConfig = AppConfig.fromPropertiesFile(File(APP_PROPERTIES))
 
     /**
      * Método principal de la aplicación

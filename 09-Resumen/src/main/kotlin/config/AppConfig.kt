@@ -1,6 +1,7 @@
 package config
 
 import mu.KotlinLogging
+import java.io.File
 import java.io.FileInputStream
 import java.util.*
 
@@ -23,31 +24,33 @@ data class AppConfig(
 ) {
     companion object {
         // Configuración por defecto
-        val DEFAULT = AppConfig(
-            nombre = "app",
-            version = "1.0.0",
-            jdbcUrl = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;",
-            jdbcUserName = "sa",
-            jdbcPassword = "",
-            jdbcDriverClassName = "org.h2.Driver",
-            jdbcMaximumPoolSize = 10,
-            jdbcCreateTables = true,
-            jdbcshowSQL = true,
-        )
+        val DEFAULT by lazy {
+            AppConfig(
+                nombre = "app",
+                version = "1.0.0",
+                jdbcUrl = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;",
+                jdbcUserName = "sa",
+                jdbcPassword = "",
+                jdbcDriverClassName = "org.h2.Driver",
+                jdbcMaximumPoolSize = 10,
+                jdbcCreateTables = true,
+                jdbcshowSQL = true,
+            )
+        }
 
         /**
          * Lee el fichero de configuración y devuelve un objeto con los parámetros de configuración.
-         * @param fileName String que representa el Fichero de configuración.
+         * @param file Fichero de configuración.
          * @return AppConfig con los parámetros de configuración.
          */
-        fun fromPropertiesFile(fileName: String): AppConfig {
-            logger.debug { "Leyendo propiedades desde: $fileName" }
-            if (!FileInputStream(fileName).use { it.available() > 0 }) {
-                logger.error { "File not found: $fileName" }
-                throw IllegalArgumentException("Fichero de configuración no encontrado: $fileName")
+        fun fromPropertiesFile(file: File): AppConfig {
+            logger.debug { "Leyendo propiedades desde: $file" }
+            if (!file.exists() || !FileInputStream(file).use { it.available() > 0 }) {
+                logger.error { "File not found: $file" }
+                throw IllegalArgumentException("Fichero de configuración no encontrado o incorrecto: $file")
             }
             val properties = Properties()
-            properties.load(FileInputStream(fileName))
+            properties.load(FileInputStream(file))
             logger.debug { "Propiedades leídas: $properties" }
             return AppConfig(
                 nombre = properties.getProperty("nombre") ?: DEFAULT.nombre,
@@ -56,11 +59,11 @@ data class AppConfig(
                 jdbcUserName = properties.getProperty("jdbc.username") ?: DEFAULT.jdbcUserName,
                 jdbcPassword = properties.getProperty("jdbc.password") ?: DEFAULT.jdbcPassword,
                 jdbcDriverClassName = properties.getProperty("jdbc.driverClassName") ?: DEFAULT.jdbcDriverClassName,
-                jdbcMaximumPoolSize = properties.getProperty("jdbc.maximumPoolSize").toIntOrNull()
+                jdbcMaximumPoolSize = properties.getProperty("jdbc.maximumPoolSize")?.toIntOrNull()
                     ?: DEFAULT.jdbcMaximumPoolSize,
-                jdbcCreateTables = properties.getProperty("jdbc.createTables").toBooleanStrictOrNull()
+                jdbcCreateTables = properties.getProperty("jdbc.createTables")?.toBooleanStrictOrNull()
                     ?: DEFAULT.jdbcCreateTables,
-                jdbcshowSQL = properties.getProperty("jdbc.showSQL").toBooleanStrictOrNull() ?: DEFAULT.jdbcshowSQL,
+                jdbcshowSQL = properties.getProperty("jdbc.showSQL")?.toBooleanStrictOrNull() ?: DEFAULT.jdbcshowSQL,
             )
         }
     }
