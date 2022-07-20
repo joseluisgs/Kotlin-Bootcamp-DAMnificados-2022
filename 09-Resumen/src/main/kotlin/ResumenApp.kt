@@ -3,6 +3,8 @@ import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
 import services.raquetas.StorageRaquetasCsvService
 import services.raquetas.StorageRaquetasCsvServiceImpl
+import services.tenistas.StorageTenistasCsvService
+import services.tenistas.StorageTenistasCsvServiceImpl
 import java.io.File
 
 /**
@@ -26,6 +28,8 @@ class ResumenApp : KoinComponent {
         val raquetasCsvStorage: StorageRaquetasCsvService = StorageRaquetasCsvServiceImpl()
         val raquetas = raquetasCsvStorage.loadFromFile("data${File.separator}raquetas.csv")
         println("Raquetas: $raquetas")
-
+        val tenistasCsvStorage: StorageTenistasCsvService = StorageTenistasCsvServiceImpl()
+        val tenistas = tenistasCsvStorage.loadFromFile("data${File.separator}tenistas.csv")
+        println("Tenistas: $tenistas")
     }
 }
