@@ -46,7 +46,7 @@ data class AppConfig(
         fun fromPropertiesFile(file: File): AppConfig {
             logger.debug { "Leyendo propiedades desde: $file" }
             if (!file.exists() || !FileInputStream(file).use { it.available() > 0 }) {
-                logger.error { "File not found: $file" }
+                logger.error { "Fichero no encontrado: $file" }
                 throw IllegalArgumentException("Fichero de configuración no encontrado o incorrecto: $file")
             }
             val properties = Properties()

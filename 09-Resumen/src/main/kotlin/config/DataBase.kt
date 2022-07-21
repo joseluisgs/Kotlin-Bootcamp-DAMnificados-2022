@@ -17,7 +17,7 @@ object DataBase {
     lateinit var appConfig: AppConfig
     fun init(appConfig: AppConfig) {
         this.appConfig = appConfig
-        logger.debug("Initializing database")
+        logger.debug { "Inicializando base de datos" }
         // Aplicamos Hiraki para la conexión a la base de datos
         val hikariConfig = HikariConfig().apply {
             jdbcUrl = appConfig.jdbcUrl
@@ -40,7 +40,7 @@ object DataBase {
         */
 
         Database.connect(dataSource)
-        logger.debug("Database initialized successfully")
+        logger.debug { "Bases de datos iniciada exitosamente" }
 
         if (appConfig.jdbcCreateTables) {
             createTables()
@@ -48,12 +48,18 @@ object DataBase {
     }
 
     private fun createTables() = transaction {
-        logger.debug("Creating tables")
+        logger.debug { "Creando tablas de la base de datos" }
 
         if (appConfig.jdbcshowSQL)
             addLogger(StdOutSqlLogger) // Para que se vea el log de consulas a la base de datos
 
-        SchemaUtils.create(RaquetasTable, TenistasTable)
-        logger.debug("Tables created")
+        // Mis tablas
+        val tables = arrayOf(
+            RaquetasTable,
+            TenistasTable
+        )
+
+        SchemaUtils.create(*tables)
+        logger.debug { "Tablas creadas (${tables.size}): ${tables.joinToString { it.tableName }}" }
     }
 }
