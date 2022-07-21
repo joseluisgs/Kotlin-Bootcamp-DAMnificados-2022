@@ -5,14 +5,15 @@ import com.zaxxer.hikari.HikariDataSource
 import entities.RaquetasTable
 import entities.TenistasTable
 import mu.KotlinLogging
-import org.jetbrains.exposed.sql.Database
-import org.jetbrains.exposed.sql.SchemaUtils
-import org.jetbrains.exposed.sql.StdOutSqlLogger
-import org.jetbrains.exposed.sql.addLogger
+import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
 private val logger = KotlinLogging.logger {}
 
+/**
+ * Clase que se encarga de inicializar la base de datos en base a su configuracion.
+ * Singleton
+ */
 object DataBase {
     lateinit var appConfig: AppConfig
     fun init(appConfig: AppConfig) {
@@ -47,6 +48,9 @@ object DataBase {
         }
     }
 
+    /**
+     * Crea las tablas en la base de datos
+     */
     private fun createTables() = transaction {
         logger.debug { "Creando tablas de la base de datos" }
 
@@ -61,5 +65,45 @@ object DataBase {
 
         SchemaUtils.create(*tables)
         logger.debug { "Tablas creadas (${tables.size}): ${tables.joinToString { it.tableName }}" }
+    }
+
+    /**
+     * Elimina las tablas de la base de datos
+     */
+    private fun dropTables() = transaction {
+        logger.debug { "Eliminando tablas de la base de datos" }
+
+        if (appConfig.jdbcshowSQL)
+            addLogger(StdOutSqlLogger) // Para que se vea el log de consulas a la base de datos
+
+        // Mis tablas
+        val tables = arrayOf(
+            RaquetasTable,
+            TenistasTable
+        )
+
+        SchemaUtils.drop(*tables)
+        logger.debug { "Tablas eliminadas (${tables.size}): ${tables.joinToString { it.tableName }}" }
+    }
+
+    /**
+     * Vacia las tablas de la base de datos
+     */
+    private fun clearTables() = transaction {
+        logger.debug { "Limpiando tablas de la base de datos" }
+
+        if (appConfig.jdbcshowSQL)
+            addLogger(StdOutSqlLogger) // Para que se vea el log de consulas a la base de datos
+
+        // Mis tablas
+        val tables = arrayOf(
+            RaquetasTable,
+            TenistasTable
+        )
+
+        tables.forEach {
+            it.deleteAll()
+        }
+        logger.debug { "Tablas limpiadas (${tables.size}): ${tables.joinToString { it.tableName }}" }
     }
 }
