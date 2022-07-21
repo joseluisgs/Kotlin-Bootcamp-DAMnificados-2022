@@ -6,7 +6,9 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.UUIDTable
 import java.util.*
 
-// Tabla de Raquetas
+/**
+ * Tabla de la base de datos que almacena Raquetas
+ */
 object RaquetasTable : UUIDTable() {
     val marca = varchar("marca", 100)
     val modelo = varchar("modelo", 100)
@@ -14,7 +16,9 @@ object RaquetasTable : UUIDTable() {
     val peso = integer("peso")
 }
 
-// DAO de RaquetasTable
+/**
+ * DAO de la entidad Raquetas
+ */
 class RaquetaDao(id: EntityID<UUID>) : UUIDEntity(id) {
     // mi id será el de la tabla...
     companion object : UUIDEntityClass<RaquetaDao>(RaquetasTable)

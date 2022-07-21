@@ -7,7 +7,9 @@ import org.jetbrains.exposed.dao.id.UUIDTable
 import org.jetbrains.exposed.sql.javatime.date
 import java.util.*
 
-// Tabla de Tenistas
+/**
+ * Tabla de la base de datos que almacena los tenistas
+ */
 object TenistasTable : UUIDTable() {
     val nombre = varchar("nombre", 100)
     val ranking = integer("ranking")
@@ -25,7 +27,9 @@ object TenistasTable : UUIDTable() {
 }
 
 
-// DAO de Tenista Clase que mapea la fila de la tabla Tenistas con id uuid
+/**
+ * DAO de la entidad tenistas
+ */
 class TenistaDao(id: EntityID<UUID>) : UUIDEntity(id) {
 
     // mi id será el de la tabla...
@@ -45,5 +49,5 @@ class TenistaDao(id: EntityID<UUID>) : UUIDEntity(id) {
 
     // Clave externa a raqueta -- Debemos tener en cuenta los probelmas de la direccionalidad...
     var raqueta by RaquetaDao referencedOn TenistasTable.raqueta  // Si le pongo var dejo asignar la raqueta a la tabla tenista.
-    
+
 }

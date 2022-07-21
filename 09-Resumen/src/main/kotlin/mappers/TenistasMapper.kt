@@ -1,6 +1,7 @@
 package mappers
 
 import dto.TenistaDto
+import entities.TenistaDao
 import models.Tenista
 import java.time.LocalDate
 import java.util.*
@@ -71,5 +72,27 @@ fun Tenista.fromTenistaToTenistaDto(): TenistaDto {
 fun TenistaDto.fromTenistaDtoToCsvLine(): String {
     return "$id,$nombre,$ranking,$fechaNacimiento,$añoProfesional,$altura,$peso,$ganancias,$manoDominante,$tipoReves,$puntos"
 }
+
+/**
+ * Extension de TenistaDao a Tenista
+ */
+fun TenistaDao.fromTenistaDaoToTenista(): Tenista {
+    return Tenista(
+        id = id.value,
+        nombre = nombre,
+        ranking = ranking,
+        fechaNacimiento = fechaNacimiento,
+        añoProfesional = añoProfesional,
+        altura = altura,
+        peso = peso,
+        ganancias = ganancias,
+        manoDominante = Tenista.ManoDominante.from(manoDominante),
+        tipoReves = Tenista.TipoReves.from(tipoReves),
+        puntos = puntos,
+        raqueta = raqueta.fromRaquetaDaoToRaqueta(),
+    )
+}
+
+
 
 

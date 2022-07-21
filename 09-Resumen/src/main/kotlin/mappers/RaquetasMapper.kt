@@ -1,6 +1,7 @@
 package mappers
 
 import dto.RaquetaDto
+import entities.RaquetaDao
 import models.Raqueta
 import java.util.*
 
@@ -34,5 +35,20 @@ fun Raqueta.fromRaquetaToRaquetaDto(): RaquetaDto {
 fun RaquetaDto.fromRaquetaDtoToCsvLine(): String {
     return "$id,$marca,$modelo,$precio,$peso"
 }
+
+/**
+ * Extension de RaquetaDao a Raqueta
+ */
+fun RaquetaDao.fromRaquetaDaoToRaqueta(): Raqueta {
+    return Raqueta(
+        id = id.value,
+        marca = marca,
+        modelo = modelo,
+        precio = precio,
+        peso = peso
+    )
+}
+
+
 
 
