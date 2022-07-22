@@ -7,9 +7,7 @@ fun main() {
     // Lanzamos la configuración de Koin
     startKoin {
         // Modulos de Koin
-        //modules(ResumenAppDI().module)
-        // defaultModule()
-        modules(AppModuleDI)
+        modules(ResumenAppModuleDI)
     }
 
     // ejecutamos nuestra App

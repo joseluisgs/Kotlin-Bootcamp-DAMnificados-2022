@@ -15,8 +15,8 @@ val mockkVersion: String = "1.12.4"
 
 plugins {
     kotlin("jvm") version "1.7.10"
-    // Para Koin Annotations
-    id("com.google.devtools.ksp") version "1.7.10-1.0.6"
+    // Para Koin Annotations fallan con algunas cosas de exposed y lo hago manual usando Koin
+    // id("com.google.devtools.ksp") version "1.7.10-1.0.6"
     // Serializacion
     kotlin("plugin.serialization") version "1.7.10"
     // Documentación con Dokka
@@ -34,9 +34,9 @@ dependencies {
     // Koin
     implementation("io.insert-koin:koin-core:$koinVersion")
     //testImplementation("io.insert-koin:koin-test:$koinVersion")
-    // Koin annotations
-    implementation("io.insert-koin:koin-annotations:$koinKspVersion")
-    ksp("io.insert-koin:koin-ksp-compiler:$koinKspVersion")
+    // Koin annotations, fallan con algunas cosas de exposed y lo hago manual usando Koin sin anotaciones
+    //    implementation("io.insert-koin:koin-annotations:$koinKspVersion")
+    //    ksp("io.insert-koin:koin-ksp-compiler:$koinKspVersion")
     // Para hacer logs
     implementation("io.github.microutils:kotlin-logging-jvm:$loggingVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
@@ -77,6 +77,8 @@ tasks.jar {
 }
 
 // Codigo para anotaciones dew Koin
+// No las voy a usar y las hago manual usamndo Koin sin anotaciones
+/*
 kotlin {
     sourceSets.main {
         kotlin.srcDir("build/generated/ksp/main/kotlin")
@@ -85,4 +87,5 @@ kotlin {
         kotlin.srcDir("build/generated/ksp/test/kotlin")
     }
 }
+*/
 

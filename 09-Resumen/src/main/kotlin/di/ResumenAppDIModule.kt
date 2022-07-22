@@ -12,7 +12,7 @@ import repositories.tenistas.TenistasRepositoryImpl
 // Prero no pasa nada porque al ser tan sencillo, con cuatro líneas aquí lo resuelvo
 // Es importante el uso de nombres, al ser genericos UUIDEntityClass, debe anotar cuales son los tipos de las entidades
 // Para pasarlos al repositorio en el orden correcto cuando lo resuleva
-val AppModuleDI = module {
+val ResumenAppModuleDI = module {
     // Lo voy a definir todo como Singleton
 
     // DAOs
