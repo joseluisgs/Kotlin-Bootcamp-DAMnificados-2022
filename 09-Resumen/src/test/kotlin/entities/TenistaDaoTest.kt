@@ -10,7 +10,7 @@ import java.time.LocalDate
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class TenistaDaoTest {
 
-    val tenista = Tenista(
+    private val tenista = Tenista(
         nombre = "Tenista Test",
         ranking = 3,
         fechaNacimiento = LocalDate.parse("1985-06-04"),

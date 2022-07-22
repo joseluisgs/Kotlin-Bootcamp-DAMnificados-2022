@@ -10,7 +10,7 @@ import java.util.*
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) // Para el beforeAll y afterAll
 internal class RaquetaDaoTest {
 
-    val raqueta = Raqueta(UUID.randomUUID(), "Marca Test", "Modelo Test", 200.0, 300)
+    private val raqueta = Raqueta(UUID.randomUUID(), "Marca Test", "Modelo Test", 200.0, 300)
 
     @BeforeAll
     fun setUp() {
