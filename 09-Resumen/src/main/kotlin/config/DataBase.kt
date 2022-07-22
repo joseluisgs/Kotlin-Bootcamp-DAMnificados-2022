@@ -51,7 +51,7 @@ object DataBase {
     /**
      * Crea las tablas en la base de datos
      */
-    private fun createTables() = transaction {
+    fun createTables() = transaction {
         logger.debug { "Creando tablas de la base de datos" }
 
         if (appConfig.jdbcshowSQL)
@@ -70,7 +70,7 @@ object DataBase {
     /**
      * Elimina las tablas de la base de datos
      */
-    private fun dropTables() = transaction {
+    fun dropTables() = transaction {
         logger.debug { "Eliminando tablas de la base de datos" }
 
         if (appConfig.jdbcshowSQL)
@@ -89,7 +89,7 @@ object DataBase {
     /**
      * Vacia las tablas de la base de datos
      */
-    private fun clearTables() = transaction {
+    fun clearTables() = transaction {
         logger.debug { "Limpiando tablas de la base de datos" }
 
         if (appConfig.jdbcshowSQL)
