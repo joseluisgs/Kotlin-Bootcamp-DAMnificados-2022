@@ -30,5 +30,6 @@ class RaquetaDao(id: EntityID<UUID>) : UUIDEntity(id) {
     var peso by RaquetasTable.peso
 
     // Relación inversa donde soy referenciado (tenistas) referrersOn, solo si quiero acceder a ellos
-    val tenistas by TenistaDao referrersOn TenistasTable.raqueta  // Si le pongo val no dejo asignar tenistas desde aquí
+    // como puede ser nul es optionalReferrersOn si no sería referrersOn
+    val tenistas by TenistaDao optionalReferrersOn TenistasTable.raqueta  // Si le pongo val no dejo asignar tenistas desde aquí
 }

@@ -23,7 +23,7 @@ object TenistasTable : UUIDTable() {
     val puntos = integer("puntos")
 
     // Mi raqueta, un tenista lleva un modelo de raqueta, es referenciada por el id de la raqueta clave de raqueta se propaga en la tabla tenistas
-    val raqueta = reference("raqueta_id", RaquetasTable)
+    val raqueta = reference("raqueta_id", RaquetasTable).nullable() // Puede ser nulo
 }
 
 
@@ -48,6 +48,7 @@ class TenistaDao(id: EntityID<UUID>) : UUIDEntity(id) {
     var puntos by TenistasTable.puntos
 
     // Clave externa a raqueta -- Debemos tener en cuenta los probelmas de la direccionalidad...
-    var raqueta by RaquetaDao referencedOn TenistasTable.raqueta  // Si le pongo var dejo asignar la raqueta a la tabla tenista.
+    // es optional porque puede ser nulo, si no seria referencia obligatoria: referencedOn
+    var raqueta by RaquetaDao optionalReferencedOn TenistasTable.raqueta  // Si le pongo var dejo asignar la raqueta a la tabla tenista.
 
 }

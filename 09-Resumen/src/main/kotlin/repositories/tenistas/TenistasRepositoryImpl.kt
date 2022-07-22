@@ -2,7 +2,6 @@ package repositories.tenistas
 
 import entities.RaquetaDao
 import entities.TenistaDao
-import exceptions.RaquetaException
 import mappers.fromTenistaDaoToTenista
 import models.Tenista
 import mu.KotlinLogging
@@ -60,8 +59,7 @@ class TenistasRepositoryImpl(
                 manoDominante = entity.manoDominante.mano
                 tipoReves = entity.tipoReves.tipo
                 puntos = entity.puntos
-                raqueta = raquetaDao.findById(entity.raqueta!!.id)
-                    ?: throw RaquetaException("La raqueta no existe con id: $id")
+                raqueta = entity.raqueta?.let { raquetaDao.findById(it.id) }
             }.fromTenistaDaoToTenista()
         } ?: run {
             logger.debug { "save($entity) - creando" }
@@ -77,8 +75,7 @@ class TenistasRepositoryImpl(
                 manoDominante = entity.manoDominante.mano
                 tipoReves = entity.tipoReves.tipo
                 puntos = entity.puntos
-                raqueta = raquetaDao.findById(entity.raqueta!!.id)
-                    ?: throw RaquetaException("La raqueta no existe con id: $id")
+                raqueta = entity.raqueta?.let { raquetaDao.findById(it.id) }
             }.fromTenistaDaoToTenista()
         }
     }

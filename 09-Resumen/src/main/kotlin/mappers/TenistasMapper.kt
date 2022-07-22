@@ -89,7 +89,7 @@ fun TenistaDao.fromTenistaDaoToTenista(): Tenista {
         manoDominante = Tenista.ManoDominante.from(manoDominante),
         tipoReves = Tenista.TipoReves.from(tipoReves),
         puntos = puntos,
-        raqueta = raqueta.fromRaquetaDaoToRaqueta(),
+        raqueta = raqueta?.fromRaquetaDaoToRaqueta(),
     )
 }
 

@@ -130,6 +130,13 @@ class ResumenApp : KoinComponent {
         tenistasRepository.save(nadal)
         println("Tenistas nadal: $nadal")
 
+        nadal.apply {
+            raqueta = null
+        }
+
+        tenistasRepository.save(nadal)
+        println("Tenistas nadal: $nadal")
+
         // Borramos nadal
         tenistasRepository.delete(nadal)
 
