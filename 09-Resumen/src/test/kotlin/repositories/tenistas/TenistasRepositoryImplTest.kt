@@ -1,18 +1,22 @@
 package repositories.tenistas
 
+import ResumenAppModuleDI
 import config.AppConfig
 import config.DataBase
-import entities.RaquetaDao
 import entities.TenistaDao
 import models.Tenista
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.junit.jupiter.api.*
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 import java.time.LocalDate
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) // Para el beforeAll y afterAll
-internal class TenistasRepositoryImplTest {
+internal class TenistasRepositoryImplTest : KoinComponent {
 
-    private val tenistasRepository: TenistasRepository = TenistasRepositoryImpl(TenistaDao, RaquetaDao)
+    private val tenistasRepository: TenistasRepository by inject()
 
     private val tenista = Tenista(
         nombre = "Tenista Test",
@@ -29,12 +33,16 @@ internal class TenistasRepositoryImplTest {
 
     @BeforeAll
     fun setUp() {
+        startKoin {
+            modules(ResumenAppModuleDI)
+        }
         DataBase.init(AppConfig.DEFAULT)
     }
 
     @AfterAll
     fun tearDown() {
         DataBase.dropTables()
+        stopKoin()
     }
 
     @BeforeEach
@@ -52,7 +60,7 @@ internal class TenistasRepositoryImplTest {
 
     @Test
     fun findById() = transaction {
-        val insert = TenistaDao.new(tenista.id) {
+        TenistaDao.new(tenista.id) {
             nombre = tenista.nombre
             ranking = tenista.ranking
             fechaNacimiento = tenista.fechaNacimiento
@@ -86,7 +94,7 @@ internal class TenistasRepositoryImplTest {
 
     @Test
     fun saveUpdate() = transaction {
-        val insert = TenistaDao.new(tenista.id) {
+        TenistaDao.new(tenista.id) {
             nombre = tenista.nombre
             ranking = tenista.ranking
             fechaNacimiento = tenista.fechaNacimiento
@@ -106,7 +114,7 @@ internal class TenistasRepositoryImplTest {
 
     @Test
     fun delete() = transaction {
-        val insert = TenistaDao.new(tenista.id) {
+        TenistaDao.new(tenista.id) {
             nombre = tenista.nombre
             ranking = tenista.ranking
             fechaNacimiento = tenista.fechaNacimiento

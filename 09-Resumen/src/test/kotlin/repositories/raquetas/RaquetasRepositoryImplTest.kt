@@ -1,29 +1,38 @@
 package repositories.raquetas
 
+import ResumenAppModuleDI
 import config.AppConfig
 import config.DataBase
 import entities.RaquetaDao
 import models.Raqueta
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.junit.jupiter.api.*
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 import java.util.*
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) // Para el beforeAll y afterAll
-internal class RaquetasRepositoryImplTest {
+internal class RaquetasRepositoryImplTest : KoinComponent {
 
-    private var raquetasRepository: RaquetasRepository = RaquetasRepositoryImpl(RaquetaDao)
+    private val raquetasRepository: RaquetasRepository by inject()
 
     private val raqueta = Raqueta(UUID.randomUUID(), "Marca Test", "Modelo Test", 200.0, 300)
 
-
     @BeforeAll
     fun setUp() {
+        startKoin {
+            modules(ResumenAppModuleDI)
+        }
+
         DataBase.init(AppConfig.DEFAULT)
     }
 
     @AfterAll
     fun tearDown() {
         DataBase.dropTables()
+        stopKoin()
     }
 
     @BeforeEach
@@ -40,7 +49,7 @@ internal class RaquetasRepositoryImplTest {
 
     @Test
     fun findById() = transaction {
-        val insert = RaquetaDao.new(raqueta.id) {
+        RaquetaDao.new(raqueta.id) {
             marca = raqueta.marca
             modelo = raqueta.modelo
             precio = raqueta.precio
@@ -69,7 +78,7 @@ internal class RaquetasRepositoryImplTest {
 
     @Test
     fun saveUpdate() = transaction {
-        val insert = RaquetaDao.new(raqueta.id) {
+        RaquetaDao.new(raqueta.id) {
             marca = raqueta.marca
             modelo = raqueta.modelo
             precio = raqueta.precio
@@ -83,7 +92,7 @@ internal class RaquetasRepositoryImplTest {
 
     @Test
     fun delete() = transaction {
-        val insert = RaquetaDao.new(raqueta.id) {
+        RaquetaDao.new(raqueta.id) {
             marca = raqueta.marca
             modelo = raqueta.modelo
             precio = raqueta.precio
