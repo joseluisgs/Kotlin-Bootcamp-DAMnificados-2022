@@ -29,7 +29,6 @@ internal class RaquetasRepositoryImplTest {
     @BeforeEach
     fun beforeEach() {
         DataBase.clearTables()
-
     }
 
     @Test
