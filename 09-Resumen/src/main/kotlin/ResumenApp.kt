@@ -1,15 +1,12 @@
 import config.AppConfig
 import config.DataBase
-import entities.RaquetaDao
-import entities.TenistaDao
 import models.Raqueta
 import models.Tenista
 import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import repositories.raquetas.RaquetasRepository
-import repositories.raquetas.RaquetasRepositoryImpl
 import repositories.tenistas.TenistasRepository
-import repositories.tenistas.TenistasRepositoryImpl
 import services.raquetas.StorageRaquetasCsvService
 import services.raquetas.StorageRaquetasCsvServiceImpl
 import services.tenistas.StorageTenistasCsvService
@@ -57,9 +54,9 @@ class ResumenApp : KoinComponent {
         // Por favor mira bien el logger para ver que pasa
         DataBase.init(appConfig)
 
-        // Repositorios
-        val raquetasRepository: RaquetasRepository = RaquetasRepositoryImpl(RaquetaDao)
-        val tenistasRepository: TenistasRepository = TenistasRepositoryImpl(TenistaDao, RaquetaDao)
+        // Repositorios con DI
+        val raquetasRepository: RaquetasRepository by inject()
+        val tenistasRepository: TenistasRepository by inject()
 
         // Vamos a crear varias raquetas
         var babolatAero = Raqueta(marca = "Babolat", modelo = "Pure Aero", precio = 195.0, peso = 300)
