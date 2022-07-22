@@ -19,6 +19,7 @@ object RaquetasTable : UUIDTable() {
 /**
  * DAO de la entidad Raquetas
  */
+
 class RaquetaDao(id: EntityID<UUID>) : UUIDEntity(id) {
     // mi id será el de la tabla...
     companion object : UUIDEntityClass<RaquetaDao>(RaquetasTable)

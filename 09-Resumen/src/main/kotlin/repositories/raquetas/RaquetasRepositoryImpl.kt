@@ -13,6 +13,7 @@ private val logger = KotlinLogging.logger {}
 /**
  * Implementación de la interfaz [RaquetaRepository] usando Exposed.
  */
+
 class RaquetasRepositoryImpl(
     private val raquetaDao: UUIDEntityClass<RaquetaDao>
 ) : RaquetasRepository {
