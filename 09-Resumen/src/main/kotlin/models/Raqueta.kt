@@ -9,7 +9,7 @@ import java.util.*
 data class Raqueta(
     val id: UUID = UUID.randomUUID(),
     var marca: String,
-    val modelo: String,
+    var modelo: String,
     var precio: Double,
     var peso: Int,
 ) {
