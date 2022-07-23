@@ -11,6 +11,7 @@ val h2Version: String = "2.1.212"
 val hikariVersion: String = "5.0.1"
 val serializationJsonVersion: String = "1.3.3"
 val mockkVersion: String = "1.12.4"
+val jacocoVersion: String = "0.8.7"
 
 
 plugins {
@@ -21,6 +22,8 @@ plugins {
     kotlin("plugin.serialization") version "1.7.10"
     // Documentación con Dokka
     id("org.jetbrains.dokka") version "1.7.10"
+    // Jacoco
+    id("jacoco")
 }
 
 group = "es.joseluisgs"
@@ -55,6 +58,8 @@ dependencies {
     testImplementation("io.mockk:mockk:$mockkVersion")
     // Documentación con Dokka
     dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:$kotlinVersion")
+    // JaCoCo
+    // testImplementation("org.jacoco:org.jacoco.core:$jacocoVersion")
 }
 
 tasks.test {
@@ -88,4 +93,5 @@ kotlin {
     }
 }
 */
+
 
