@@ -5,14 +5,15 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
+import utils.toSystemPath
 import java.io.File
 
 @ExtendWith(MockKExtension::class)
 internal class StorageRaquetasCsvServiceImplTest {
 
     private val storage: StorageRaquetasCsvService = StorageRaquetasCsvServiceImpl()
-    private val fileIn = File("src/test/resources/raquetas.csv")
-    private val fileOut = File("src/test/resources/raquetas-output.csv")
+    private val fileIn = File("src/test/resources/raquetas.csv".toSystemPath())
+    private val fileOut = File("src/test/resources/raquetas-output.csv".toSystemPath())
 
     @Test
     fun loadFromFile() {

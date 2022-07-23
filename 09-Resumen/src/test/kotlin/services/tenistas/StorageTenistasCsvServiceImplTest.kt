@@ -3,13 +3,14 @@ package services.tenistas
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
 import org.junit.jupiter.api.assertThrows
+import utils.toSystemPath
 import java.io.File
 
 internal class StorageTenistasCsvServiceImplTest {
 
     private val storage: StorageTenistasCsvService = StorageTenistasCsvServiceImpl()
-    private val fileIn = File("src/test/resources/tenistas.csv")
-    private val fileOut = File("src/test/resources/tenistas-output.csv")
+    private val fileIn = File("src/test/resources/tenistas.csv".toSystemPath())
+    private val fileOut = File("src/test/resources/tenistas-output.csv".toSystemPath())
 
     @Test
     fun loadFromFile() {

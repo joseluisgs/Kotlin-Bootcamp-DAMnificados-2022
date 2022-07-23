@@ -12,7 +12,7 @@
         "tipoReves": "DOS MANOS",
         "puntos": 4770,
         "raqueta": {
-            "id": "d33aff28-7705-490e-9265-8a3e31383f98",
+            "id": "98cd1616-01a7-4303-a62c-0d94f6af6eed",
             "marca": "Head",
             "modelo": "Speed",
             "precio": 205.5,
@@ -72,7 +72,7 @@
         "tipoReves": "DOS MANOS",
         "puntos": 6165,
         "raqueta": {
-            "id": "56b28501-4a12-4d38-a82d-cbed501af6f1",
+            "id": "c9e3accd-00d7-4295-9dd6-fea5866ed9b6",
             "marca": "Babolat",
             "modelo": "Pure Aero",
             "precio": 195.0,
@@ -205,7 +205,7 @@
         "tipoReves": "DOS MANOS",
         "puntos": 4845,
         "raqueta": {
-            "id": "56b28501-4a12-4d38-a82d-cbed501af6f1",
+            "id": "c9e3accd-00d7-4295-9dd6-fea5866ed9b6",
             "marca": "Babolat",
             "modelo": "Pure Aero",
             "precio": 195.0,
@@ -225,7 +225,7 @@
         "tipoReves": "DOS MANOS",
         "puntos": 3185,
         "raqueta": {
-            "id": "d33aff28-7705-490e-9265-8a3e31383f98",
+            "id": "98cd1616-01a7-4303-a62c-0d94f6af6eed",
             "marca": "Head",
             "modelo": "Speed",
             "precio": 205.5,

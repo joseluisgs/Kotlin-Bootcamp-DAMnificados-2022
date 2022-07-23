@@ -15,6 +15,7 @@ import services.tenistas.StorageTenistasCsvService
 import services.tenistas.StorageTenistasCsvServiceImpl
 import services.tenistas.StorageTenistasJsonService
 import services.tenistas.StorageTenistasJsonServiceImpl
+import utils.toSystemPath
 import java.io.File
 import java.time.LocalDate
 
@@ -35,11 +36,11 @@ const val TENISTAS_INPUT_JSON_FILE = "data/tenistas.json"
 const val TENISTAS_OUTPUT_JSON_FILE = "data/tenistas-output.json"
 
 class ResumenApp : KoinComponent {
-    var appConfig: AppConfig = AppConfig.fromPropertiesFile(File(APP_PROPERTIES))
+    var appConfig: AppConfig = AppConfig.fromPropertiesFile(File(APP_PROPERTIES.toSystemPath()))
 
     init {
-        logger.info { "Iniciando la aplicación" }
-        logger.info { "Configuración: $appConfig" }
+        logger.debug { "Iniciando la aplicación" }
+        logger.debug { "Configuración: $appConfig" }
         // Iniciamos la base de datos, las tablas y todo de acuerdo a nuestra configuracion
         // Por favor mira bien el logger para ver que pasa
         DataBase.init(appConfig)
@@ -74,7 +75,7 @@ class ResumenApp : KoinComponent {
     private fun jugandoConControladores() {
         val raquetasController: RaquetasController by inject()
 
-        raquetasController.importDataFromCsv(File(RAQUETAS_INPUT_CSV_FILE))
+        raquetasController.importDataFromCsv(File(RAQUETAS_INPUT_CSV_FILE.toSystemPath()))
         val raquetas = raquetasController.getAll()
         println("Raquetas: $raquetas")
 
@@ -112,7 +113,7 @@ class ResumenApp : KoinComponent {
 
         val tenistasController: TenistasController by inject()
 
-        tenistasController.importDataFromCsv(File(TENISTAS_INPUT_CSV_FILE))
+        tenistasController.importDataFromCsv(File(TENISTAS_INPUT_CSV_FILE.toSystemPath()))
         val tenistas = tenistasController.getAll()
         println("Tenistas: $tenistas")
 
@@ -200,7 +201,7 @@ class ResumenApp : KoinComponent {
         val reportTenistas = tenistasController.report()
         println("Informe de tenistas: $reportTenistas")
 
-        tenistasController.exportDataToJson(File(TENISTAS_OUTPUT_JSON_FILE))
+        tenistasController.exportDataToJson(File(TENISTAS_OUTPUT_JSON_FILE.toSystemPath()))
 
 
     }
@@ -307,11 +308,11 @@ class ResumenApp : KoinComponent {
      */
     private fun jugandoConStorage() {
         val raquetasCsvStorage: StorageRaquetasCsvService = StorageRaquetasCsvServiceImpl()
-        val raquetas = raquetasCsvStorage.loadFromFile(File(RAQUETAS_INPUT_CSV_FILE))
+        val raquetas = raquetasCsvStorage.loadFromFile(File(RAQUETAS_INPUT_CSV_FILE.toSystemPath()))
         println("Raquetas: $raquetas")
 
         val tenistasCsvStorage: StorageTenistasCsvService = StorageTenistasCsvServiceImpl()
-        var tenistas = tenistasCsvStorage.loadFromFile(File(TENISTAS_INPUT_CSV_FILE))
+        var tenistas = tenistasCsvStorage.loadFromFile(File(TENISTAS_INPUT_CSV_FILE.toSystemPath()))
         println("Tenistas: $tenistas")
 
         raquetasCsvStorage.saveToFile(File(RAQUETAS_OUTPUT_CSV_FILE), raquetas.sortedBy { it.marca })
@@ -319,7 +320,7 @@ class ResumenApp : KoinComponent {
 
         val tenistasJsonStorage: StorageTenistasJsonService = StorageTenistasJsonServiceImpl()
         tenistasJsonStorage.saveToFile(File(TENISTAS_OUTPUT_JSON_FILE), tenistas.sortedBy { it.ranking })
-        tenistas = tenistasJsonStorage.loadFromFile(File(TENISTAS_INPUT_JSON_FILE))
+        tenistas = tenistasJsonStorage.loadFromFile(File(TENISTAS_INPUT_JSON_FILE.toSystemPath()))
         println("Tenistas: $tenistas")
     }
 }

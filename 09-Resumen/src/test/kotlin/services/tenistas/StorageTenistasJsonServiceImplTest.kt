@@ -3,13 +3,14 @@ package services.tenistas
 import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
+import utils.toSystemPath
 import java.io.File
 
 internal class StorageTenistasJsonServiceImplTest {
 
     private val storage: StorageTenistasJsonService = StorageTenistasJsonServiceImpl()
-    private val fileIn = File("src/test/resources/tenistas.json")
-    private val fileOut = File("src/test/resources/tenistas-output.json")
+    private val fileIn = File("src/test/resources/tenistas.json".toSystemPath())
+    private val fileOut = File("src/test/resources/tenistas-output.json".toSystemPath())
 
     @Test
     fun loadFromFile() {
