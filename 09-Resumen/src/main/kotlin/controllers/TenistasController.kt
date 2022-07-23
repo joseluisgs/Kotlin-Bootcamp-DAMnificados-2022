@@ -122,6 +122,7 @@ class TenistasController(
         sb.appendLine("Ordenados por altura: ${tenistas.sortedBy { it.altura }}")
         sb.appendLine("Agrupados por Reves: ${tenistas.groupBy { it.tipoReves }}")
         sb.appendLine("Agrupados por Raqueta: ${tenistas.groupBy { it.raqueta?.marca }}")
+        // Loo ideal es salvar en un avariable para no repetir varias veces la misma consulta
         sb.appendLine(
             "Raqueta más usada: ${tenistas.groupBy { it.raqueta?.marca }.maxBy { it.value.size }.key} con ${
                 tenistas.groupBy { it.raqueta?.marca }.maxBy { it.value.size }.value.size
@@ -129,6 +130,7 @@ class TenistasController(
         )
         sb.appendLine("Numero de tenistas zurdos: ${tenistas.count { it.manoDominante == Tenista.ManoDominante.IZQUIERDA }}")
         sb.appendLine("Ganancia media: ${tenistas.map { it.ganancias }.average().toLocalMoney()}")
+        // Loo ideal es salvar en un avariable para no repetir varias veces la misma consulta
         sb.appendLine("Tenista más joven: ${tenistas.maxBy { it.fechaNacimiento }.nombre} nacido el ${tenistas.maxBy { it.fechaNacimiento }.fechaNacimiento.toLocalDate()}")
 
         return sb.toString()
