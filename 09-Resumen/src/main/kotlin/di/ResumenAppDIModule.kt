@@ -1,4 +1,5 @@
 import controllers.RaquetasController
+import controllers.TenistasController
 import entities.RaquetaDao
 import entities.TenistaDao
 import org.jetbrains.exposed.dao.UUIDEntityClass
@@ -10,6 +11,10 @@ import repositories.tenistas.TenistasRepository
 import repositories.tenistas.TenistasRepositoryImpl
 import services.raquetas.StorageRaquetasCsvService
 import services.raquetas.StorageRaquetasCsvServiceImpl
+import services.tenistas.StorageTenistasCsvService
+import services.tenistas.StorageTenistasCsvServiceImpl
+import services.tenistas.StorageTenistasJsonService
+import services.tenistas.StorageTenistasJsonServiceImpl
 
 // OJO, no voy a usar anotaciones porque falla con los object de DAO al no conocer el tipo de la entidad
 // Prero no pasa nada porque al ser tan sencillo, con cuatro líneas aquí lo resuelvo
@@ -28,7 +33,10 @@ val ResumenAppModuleDI = module {
 
     // Services
     single<StorageRaquetasCsvService> { StorageRaquetasCsvServiceImpl() }
+    single<StorageTenistasCsvService> { StorageTenistasCsvServiceImpl() }
+    single<StorageTenistasJsonService> { StorageTenistasJsonServiceImpl() }
 
     // Controllers
     single { RaquetasController(get(), get()) }
+    single { TenistasController(get(), get(), get()) }
 }

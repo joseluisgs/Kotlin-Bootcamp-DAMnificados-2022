@@ -1,6 +1,7 @@
 import config.AppConfig
 import config.DataBase
 import controllers.RaquetasController
+import controllers.TenistasController
 import models.Raqueta
 import models.Tenista
 import mu.KotlinLogging
@@ -94,7 +95,7 @@ class ResumenApp : KoinComponent {
             peso = 200
         }
 
-        raquetasController.save(raqueta)
+        raqueta = raquetasController.save(raqueta)
         println("Raqueta guardada: $raqueta")
 
         raqueta = raquetasController.getById(raqueta.id)
@@ -106,8 +107,100 @@ class ResumenApp : KoinComponent {
         // Lo usaremos...
         val babolatAero = raquetasController.getByMarcaAndModelo("Babolat", "Aero")
 
-        val reportRaqueta = raquetasController.report()
-        println("Informe de raquetas: $reportRaqueta")
+        val reportRaquetas = raquetasController.report()
+        println("Informe de raquetas: $reportRaquetas")
+
+        val tenistasController: TenistasController by inject()
+
+        tenistasController.importDataFromCsv(File(TENISTAS_INPUT_CSV_FILE))
+        val tenistas = tenistasController.getAll()
+        println("Tenistas: $tenistas")
+
+        var tenista = Tenista(
+            nombre = "Tenista Controller",
+            ranking = 33,
+            fechaNacimiento = LocalDate.parse("1995-06-04"),
+            añoProfesional = 2005,
+            altura = 185,
+            peso = 80,
+            ganancias = 10000000.0,
+            manoDominante = Tenista.ManoDominante.from("Izquierda"),
+            tipoReves = Tenista.TipoReves.from("dos manos"),
+            puntos = 6789
+        )
+
+        tenista = tenistasController.save(tenista)
+        println("Tenista guardado: $tenista")
+
+        tenista.apply {
+            nombre = "Tenista Controller 2"
+            ranking = 44
+            puntos = 7777
+        }
+
+        tenista = tenistasController.save(tenista)
+        println("Tenista guardado: $tenista")
+
+        tenista = tenistasController.getById(tenista.id)
+        println("Tenista obtenido: $tenista")
+
+        tenista = tenistasController.delete(tenista)
+        println("Tenista eliminado: $tenista")
+
+        // Vamos a asignarles raquetas
+        // Novak
+        tenista = tenistasController.getByName("Novak")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("head", "speed")
+        tenistasController.save(tenista)
+        // Daniil
+        tenista = tenistasController.getByName("Daniil")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("tecnifibre", "tfight")
+        tenistasController.save(tenista)
+        // Zverev
+        tenista = tenistasController.getByName("Zverev")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("head", "gravity")
+        tenistasController.save(tenista)
+        // Nadal
+        tenista = tenistasController.getByName("Nadal")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("babolat", "aero")
+        tenistasController.save(tenista)
+        // Stefanos
+        tenista = tenistasController.getByName("Stefanos")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("wilson", "blade")
+        tenistasController.save(tenista)
+        // Matteo
+        tenista = tenistasController.getByName("Matteo")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("head", "extreme")
+        tenistasController.save(tenista)
+        // Casper
+        tenista = tenistasController.getByName("Casper")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("yonex", "ezone")
+        tenistasController.save(tenista)
+        // Cameron
+        tenista = tenistasController.getByName("Cameron")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("babolat", "strike")
+        tenistasController.save(tenista)
+        // Alcaraz
+        tenista = tenistasController.getByName("Alcaraz")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("babolat", "aero")
+        tenistasController.save(tenista)
+        // Sinner
+        tenista = tenistasController.getByName("Sinner")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("head", "speed")
+        tenistasController.save(tenista)
+        // Felix
+        tenista = tenistasController.getByName("Auger")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("babolat", "aero")
+        // Rublev
+        tenista = tenistasController.getByName("Rublev")[0]
+        tenista.raqueta = raquetasController.getByMarcaAndModelo("head", "gravity")
+        tenistasController.save(tenista)
+
+
+        val reportTenistas = tenistasController.report()
+        println("Informe de tenistas: $reportTenistas")
+
+        tenistasController.exportDataToJson(File(TENISTAS_OUTPUT_JSON_FILE))
 
 
     }

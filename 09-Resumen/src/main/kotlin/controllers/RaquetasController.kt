@@ -5,6 +5,7 @@ import models.Raqueta
 import mu.KotlinLogging
 import repositories.raquetas.RaquetasRepository
 import services.raquetas.StorageRaquetasCsvService
+import utils.toLocalNumber
 import java.io.File
 import java.util.*
 
@@ -58,7 +59,7 @@ class RaquetasController(
      * @return Raqueta insertada o actualizada
      */
     fun save(raqueta: Raqueta): Raqueta {
-        logger.debug { "Inserting raqueta $raqueta" }
+        logger.debug { "Saving raqueta $raqueta" }
         return raquetasRepository.save(raqueta)
     }
 
@@ -70,11 +71,10 @@ class RaquetasController(
      */
     fun delete(raqueta: Raqueta): Raqueta {
         logger.debug { "Deleting raqueta with id ${raqueta.id}" }
-        return if (raquetasRepository.delete(raqueta)) {
+        return if (raquetasRepository.delete(raqueta))
             raqueta
-        } else {
+        else
             throw RaquetaException("Raqueta with id ${raqueta.id} not found")
-        }
     }
 
     /**
@@ -102,7 +102,9 @@ class RaquetasController(
         sb.appendLine("Total: ${raquetas.size}")
         sb.appendLine("Mas cara: ${raquetas.maxBy { it.precio }} ")
         sb.appendLine("Menos pesada: ${raquetas.minBy { it.peso }} ")
+        sb.appendLine("Peso medio: ${raquetas.map { it.peso }.average().toLocalNumber()} gr.")
         sb.appendLine("Por marca: ${raquetas.groupBy { it.marca }} ")
+
         return sb.toString()
     }
 }
