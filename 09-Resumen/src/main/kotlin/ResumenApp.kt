@@ -1,11 +1,14 @@
 import config.AppConfig
 import config.DataBase
+import controllers.RaquetasController
+import entities.RaquetaDao
 import models.Raqueta
 import models.Tenista
 import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import repositories.raquetas.RaquetasRepository
+import repositories.raquetas.RaquetasRepositoryImpl
 import repositories.tenistas.TenistasRepository
 import services.raquetas.StorageRaquetasCsvService
 import services.raquetas.StorageRaquetasCsvServiceImpl
@@ -35,6 +38,14 @@ const val TENISTAS_OUTPUT_JSON_FILE = "data/tenistas-output.json"
 class ResumenApp : KoinComponent {
     var appConfig: AppConfig = AppConfig.fromPropertiesFile(File(APP_PROPERTIES))
 
+    init {
+        logger.info { "Iniciando la aplicación" }
+        logger.info { "Configuración: $appConfig" }
+        // Iniciamos la base de datos, las tablas y todo de acuerdo a nuestra configuracion
+        // Por favor mira bien el logger para ver que pasa
+        DataBase.init(appConfig)
+    }
+
     /**
      * Método principal de la aplicación
      */
@@ -42,17 +53,74 @@ class ResumenApp : KoinComponent {
         println("\uD83D\uDC4B Hola Resumen")
         println("===============")
 
+
+        // Para que lo veas por partes.
         jugandoConStorage()
+
+        // Bases de datos con repositorios
         jugandoConBaseDatos()
+
+        // Jugando con controladores
+        jugandoConControladores()
     }
 
     /**
-     * Jugando con Bases de Datos
+     * Jugando con controladores que son los que controlan todo
+     * Tienen como dependencias el resto de elementos: repositorios y servicios
+     * Los controladores son los que se encargan de la lógica de negocio
+     * controlan cómo y cúando acceder a las cosas
+     * Ya verás adelante en otras arquitecturas como Spring que controlan el punto de acceso a las rutas
+     * de una api rest, por ejemplo.../raquetas o /tenistas
+     */
+    private fun jugandoConControladores() {
+        val raquetasController = RaquetasController(
+            raquetasRepository = RaquetasRepositoryImpl(RaquetaDao),
+            storageRaquetasCsvService = StorageRaquetasCsvServiceImpl()
+        )
+
+        raquetasController.importDataFromCsv(File(RAQUETAS_INPUT_CSV_FILE))
+        val raquetas = raquetasController.getAll()
+        println("Raquetas: $raquetas")
+
+        var raqueta = Raqueta(
+            marca = "Raqueta Controller",
+            modelo = "Modelo Controller",
+            precio = 100.0,
+            peso = 100
+        )
+
+        raqueta = raquetasController.save(raqueta)
+        println("Raqueta guardada: $raqueta")
+
+        raqueta.apply {
+            marca = "Raqueta Controller 2"
+            modelo = "Modelo Controller 2"
+            precio = 200.0
+            peso = 200
+        }
+
+        raquetasController.save(raqueta)
+        println("Raqueta guardada: $raqueta")
+
+        raqueta = raquetasController.getById(raqueta.id)
+        println("Raqueta obtenida: $raqueta")
+
+        raqueta = raquetasController.delete(raqueta)
+        println("Raqueta eliminada: $raqueta")
+
+        // Lo usaremos...
+        val babolatAero = raquetasController.getByMarcaAndModelo("Babolat", "Aero")
+
+        val reportRaqueta = raquetasController.report()
+        println("Informe de raquetas: $reportRaqueta")
+
+
+    }
+
+    /**
+     * Jugando con Bases de Datos y repositorios
      */
     private fun jugandoConBaseDatos() {
-        // Iniciamos la base de datos, las tablas y todo de acuerdo a nuestra configuracion
-        // Por favor mira bien el logger para ver que pasa
-        DataBase.init(appConfig)
 
         // Repositorios con DI
         val raquetasRepository: RaquetasRepository by inject()
