@@ -9,6 +9,7 @@ import services.tenistas.StorageTenistasJsonService
 import utils.toLocalDate
 import utils.toLocalMoney
 import java.io.File
+import java.time.LocalDate
 import java.util.*
 
 
@@ -119,19 +120,25 @@ class TenistasController(
         sb.appendLine("-----------------------------------------")
         sb.appendLine("Total: ${tenistas.size}")
         sb.appendLine("Ordenados por puntuación: ${tenistas.sortedByDescending { it.puntos }}")
-        sb.appendLine("Ordenados por altura: ${tenistas.sortedBy { it.altura }}")
+        sb.appendLine("Ordenados por altura: ${tenistas.sortedByDescending { it.altura }}")
         sb.appendLine("Agrupados por Reves: ${tenistas.groupBy { it.tipoReves }}")
         sb.appendLine("Agrupados por Raqueta: ${tenistas.groupBy { it.raqueta?.marca }}")
         // Loo ideal es salvar en un avariable para no repetir varias veces la misma consulta
+        val res = tenistas.groupBy { it.raqueta?.marca }.maxBy { it.value.size }
         sb.appendLine(
-            "Raqueta más usada: ${tenistas.groupBy { it.raqueta?.marca }.maxBy { it.value.size }.key} con ${
-                tenistas.groupBy { it.raqueta?.marca }.maxBy { it.value.size }.value.size
-            } tenistas"
+            "Raqueta más usada: ${res.key} con ${res.value.size} tenistas"
         )
         sb.appendLine("Numero de tenistas zurdos: ${tenistas.count { it.manoDominante == Tenista.ManoDominante.IZQUIERDA }}")
         sb.appendLine("Ganancia media: ${tenistas.map { it.ganancias }.average().toLocalMoney()}")
         // Loo ideal es salvar en un avariable para no repetir varias veces la misma consulta
-        sb.appendLine("Tenista más joven: ${tenistas.maxBy { it.fechaNacimiento }.nombre} nacido el ${tenistas.maxBy { it.fechaNacimiento }.fechaNacimiento.toLocalDate()}")
+        val joven = tenistas.maxBy { it.fechaNacimiento }
+        sb.appendLine(
+            "Tenista más joven: ${joven.nombre} nacido el ${joven.fechaNacimiento.toLocalDate()} " +
+                    "y tiene ${(LocalDate.now().minusYears(joven.fechaNacimiento.year.toLong())).year} años"
+        )
+        // Tenistas con mas de 30 años
+        val mayores30 = tenistas.filter { LocalDate.now().minusYears(it.fechaNacimiento.year.toLong()).year > 30 }
+        sb.appendLine("Tenistas mayores de 30 años: ${mayores30.size} y son ${mayores30.map { it.nombre }}")
 
         return sb.toString()
     }
