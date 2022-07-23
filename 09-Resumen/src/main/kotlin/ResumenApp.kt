@@ -1,14 +1,12 @@
 import config.AppConfig
 import config.DataBase
 import controllers.RaquetasController
-import entities.RaquetaDao
 import models.Raqueta
 import models.Tenista
 import mu.KotlinLogging
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import repositories.raquetas.RaquetasRepository
-import repositories.raquetas.RaquetasRepositoryImpl
 import repositories.tenistas.TenistasRepository
 import services.raquetas.StorageRaquetasCsvService
 import services.raquetas.StorageRaquetasCsvServiceImpl
@@ -73,10 +71,7 @@ class ResumenApp : KoinComponent {
      * de una api rest, por ejemplo.../raquetas o /tenistas
      */
     private fun jugandoConControladores() {
-        val raquetasController = RaquetasController(
-            raquetasRepository = RaquetasRepositoryImpl(RaquetaDao),
-            storageRaquetasCsvService = StorageRaquetasCsvServiceImpl()
-        )
+        val raquetasController: RaquetasController by inject()
 
         raquetasController.importDataFromCsv(File(RAQUETAS_INPUT_CSV_FILE))
         val raquetas = raquetasController.getAll()
