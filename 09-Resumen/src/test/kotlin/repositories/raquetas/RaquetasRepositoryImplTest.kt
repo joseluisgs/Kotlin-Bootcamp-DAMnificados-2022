@@ -13,6 +13,11 @@ import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
 import java.util.*
 
+/**
+ * Como no estamos mockeando las dependencias estamos haciendo un test unitario que ademas es de integración
+ * esto es debido porque propagamos los mensajes entre objetos y comprobamos que dicha cadena de mensajes funciona
+ * Pero no tiene que ser necesario hacerlo así.
+ */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) // Para el beforeAll y afterAll
 internal class RaquetasRepositoryImplTest : KoinComponent {
 
