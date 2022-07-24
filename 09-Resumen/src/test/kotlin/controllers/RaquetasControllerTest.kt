@@ -17,6 +17,9 @@ import services.raquetas.StorageRaquetasCsvService
 import java.io.File
 import java.util.*
 
+/**
+ * Creamos un mock de las dependencias para poder testear el controlador
+ */
 @ExtendWith(MockKExtension::class)
 internal class RaquetasControllerTest {
 
