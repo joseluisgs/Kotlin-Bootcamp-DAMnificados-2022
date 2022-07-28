@@ -20,4 +20,8 @@ class CalentadorElectrico : Calentador {
     override fun estaCaliente(): Boolean {
         return calentando
     }
+
+    override fun toString(): String {
+        return "Calentador Electrico(id=$id)"
+    }
 }

@@ -10,7 +10,8 @@ import org.koin.core.qualifier.named
 class PersonasApp : KoinComponent {
     val contRepoStorageBD: PersonasController by inject(named("DataBaseController"))
     val contRepoStorageFile: PersonasController by inject(named("FileController"))
-    //val contRepoStorageBD: PersonasController by inject()
+    val contPorDefecto: PersonasController by inject()
+
 
     fun run() {
         println("Personas: Model->Controller->Repository->Storage(Database|File)")
@@ -19,13 +20,22 @@ class PersonasApp : KoinComponent {
         println(p)
         println()
 
+        println("Personas: Model->Controller->Repository->Storage(Database)")
         println(contRepoStorageBD)
         var resBD = contRepoStorageBD.save(p)
         println("Resultado BD: $resBD")
+        println()
 
+        println("Personas: Model->Controller->Repository->Storage(File)")
         println(contRepoStorageFile)
         resBD = contRepoStorageFile.save(p)
         println("Resultado File: $resBD")
+        println()
+
+        println("Personas: Model->Controller->Repository->Storage(Por Defecto)")
+        println(contPorDefecto)
+        val res = contPorDefecto.save(p)
+        println("Resultado Por Defecto: $res")
         println()
     }
 }

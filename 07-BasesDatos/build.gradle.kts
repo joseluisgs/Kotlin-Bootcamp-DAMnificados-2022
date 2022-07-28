@@ -24,13 +24,14 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-java-time:0.38.2")
     // BBDD H2
     implementation("com.h2database:h2:2.1.212")
-    // Opcionales
+    // Opcionalesw
     // Para manejar un pool de conexions mega rápido con HikariCP (no es obligatorio)
     implementation("com.zaxxer:HikariCP:5.0.1")
 
 }
 
 tasks.test {
+    w
     useJUnitPlatform()
 }
 

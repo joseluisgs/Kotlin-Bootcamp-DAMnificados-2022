@@ -18,6 +18,10 @@ class CasasApp : KoinComponent {
         casa.entrar()
         casa.ventilar()
         println()
+
+        val casa2: Casa by inject()
+        println("Casa2: $casa2")
+
     }
 }
 

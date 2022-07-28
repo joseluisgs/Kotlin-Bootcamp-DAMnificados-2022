@@ -16,4 +16,8 @@ data class Casa(
     fun ventilar() {
         ventana.abrir()
     }
+
+    override fun toString(): String {
+        return "Casa(id=$id, ventana=$ventana, puerta=$puerta)"
+    }
 }

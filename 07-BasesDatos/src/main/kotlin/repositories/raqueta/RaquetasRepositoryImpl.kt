@@ -1,6 +1,7 @@
 package repositories.raqueta
 
 import entities.RaquetaDao
+import entities.RaquetasTable
 import mappers.fromRaquetaDaoToRaqueta
 import models.Raqueta
 import mu.KotlinLogging
@@ -26,10 +27,16 @@ class RaquetasRepositoryImpl(
             ?.fromRaquetaDaoToRaqueta() //?: throw RaquetaException("Raqueta no encontrada con id: $id") // No es obligatorio el throw, porque devolvemos Raqueta? lo sería si es Raqueta
     }
 
+    fun findByMarca(marca: String): List<Raqueta> = transaction {
+        logger.debug { "findByMarca($marca)" }
+        raquetaDao.find { RaquetasTable.marca eq marca }.map { it.fromRaquetaDaoToRaqueta() }
+    }
+
     override fun save(entity: Raqueta): Raqueta = transaction {
         // Existe?
         val existe = raquetaDao.findById(entity.id)
         // Esta alrternativa let/run es muy usada en Kotlin, como el if else...
+
         existe?.let {
             // Si existe actualizamos
             logger.debug { "save($entity) - actualizando" }

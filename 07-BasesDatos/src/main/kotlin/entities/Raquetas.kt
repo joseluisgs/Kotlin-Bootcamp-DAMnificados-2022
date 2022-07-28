@@ -7,7 +7,7 @@ import org.jetbrains.exposed.dao.id.UUIDTable
 import java.util.*
 
 // Tabla de Raquetas
-object RaquetasTable : UUIDTable() {
+object RaquetasTable : UUIDTable("RAQUETAS") {
     val marca = varchar("marca", 100)
     val precio = double("precio")
 }

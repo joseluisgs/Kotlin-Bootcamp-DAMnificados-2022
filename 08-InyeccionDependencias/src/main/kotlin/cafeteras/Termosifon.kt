@@ -10,4 +10,8 @@ data class Termosifon(private val calentador: Calentador) : Bomba {
             println("=> => bombeando => =>")
         }
     }
+
+    override fun toString(): String {
+        return "Termosifon(id=$id, calentador=$calentador)"
+    }
 }

@@ -14,6 +14,10 @@ class CafeterasApp : KoinComponent {
         cafetera.servir()
         println(cafetera)
         println()
+
+        val cafetera2: Cafetera by inject() // podriamos usar get()
+        println("Cafetera2: $cafetera2")
+        cafetera2.servir()
     }
 }
 
@@ -23,7 +27,7 @@ fun main() {
         // use Koin logger
         printLogger()
         // declare modules
-        modules(CafeterasModule)
+        modules(CafeterasModule,)
     }
     CafeterasApp().run()
 }

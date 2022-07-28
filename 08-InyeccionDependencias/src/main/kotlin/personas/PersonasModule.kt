@@ -15,14 +15,20 @@ val PersonasModule = module {
     // Hay dos formas de repositorio de personas. y le decimos que al principio (para probar)
     single<IPersonasStorage>(named("DataBaseStorage")) { PersonasStorageDataBase() }
     single<IPersonasStorage>(named("FileStorage")) { PersonasStorageFile() }
+    // O por defecto
+    single<IPersonasStorage> { PersonasStorageDataBase() }
 
     // Creamos los posibles repositorios de personas
     single<IPersonasRepository>(named("DataBaseRepository")) { PersonasRepository(get(named("DataBaseStorage"))) }
     single<IPersonasRepository>(named("FileRepository")) { PersonasRepository(get(named("FileStorage"))) }
+    // O por defecto
+    factory<IPersonasRepository> { PersonasRepository(get()) }
 
     // Creamos el controlador
     single(named("DataBaseController")) { PersonasController(get(named("DataBaseRepository"))) }
     single(named("FileController")) { PersonasController(get(named("FileRepository"))) }
+    // O por defecto
+    single { PersonasController(get()) }
 
     // De manera básica
     /*single<IPersonasStorage> { PersonasStorageDataBase() }
